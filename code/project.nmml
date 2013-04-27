@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="LD26" package="com.example.app" version="1.0.0" company="" />
+
+ 	<app file="Main" main="Main" path="bin" />
+
+	<window fps="30" background="0x333333" />
+	<window width="640" height="480" resizable="true" unless="mobile" />
+	<window fullscreen="true" if="mobile" />
+
+	<source path="src" />
+
+	<haxelib name="nme" />
+	<haxelib name="HaxePunk" />
+
+	<assets path="assets/graphics" rename="gfx" include="*.png|*.jpg" />
+	<assets path="assets/audio" rename="sfx" include="*.mp3" if="flash" />
+	<assets path="assets/audio" rename="sfx" include="*.wav|*.ogg" unless="flash" />
+	<assets path="assets/font" rename="font" include="*.ttf" />
+
+	<icon path="gfx/icon_x256.png" width="256" height="256" />
+	<icon path="gfx/icon_x128.png" width="128" height="128" />
+	<icon path="gfx/icon_x32.png" width="32" height="32" />
+	<icon path="gfx/icon_x16.png" width="16" height="16" />
+	
+</project>
