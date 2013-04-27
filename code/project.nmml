@@ -18,9 +18,11 @@
 	<assets path="assets/audio" rename="sfx" include="*.wav|*.ogg" unless="flash" />
 	<assets path="assets/font" rename="font" include="*.ttf" />
 
-	<icon path="gfx/icon_x256.png" width="256" height="256" />
-	<icon path="gfx/icon_x128.png" width="128" height="128" />
-	<icon path="gfx/icon_x32.png" width="32" height="32" />
-	<icon path="gfx/icon_x16.png" width="16" height="16" />
+	<!--
+	<icon path="assets/graphics/icon_x256.png" width="256" height="256" />
+	<icon path="assets/graphics/icon_x128.png" width="128" height="128" />
+	<icon path="assets/graphics/icon_x32.png" width="32" height="32" />
+	<icon path="assets/graphics/icon_x16.png" width="16" height="16" />
+	-->
 	
 </project>
