@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Data>
+  <Tables>
+    <Table>
+      <Schema>
+        <Name>Global</Name>
+        <Field>
+          <Name>value</Name>
+          <Type>decimal</Type>
+        </Field>
+        <Field>
+          <Name>text</Name>
+          <Type>string</Type>
+        </Field>
+      </Schema>
+      <Row>
+        <id>1</id>
+        <name>Walk Speed</name>
+        <value>5</value>
+        <text />
+      </Row>
+    </Table>
+    <Table>
+      <Schema>
+        <Name>Artwork</Name>
+        <Field>
+          <Name>path</Name>
+          <Type>string</Type>
+        </Field>
+        <Field>
+          <Name>width</Name>
+          <Type>int</Type>
+        </Field>
+        <Field>
+          <Name>height</Name>
+          <Type>int</Type>
+        </Field>
+      </Schema>
+      <Row>
+        <id>0</id>
+        <name>No Artwork</name>
+        <path />
+        <width>0</width>
+        <height>0</height>
+      </Row>
+    </Table>
+  </Tables>
+</Data>
