@@ -8,7 +8,8 @@
 	<window width="640" height="480" resizable="true" unless="mobile" />
 	<window fullscreen="true" if="mobile" />
 
-	<source path="src" />
+	<source path="src/dbvo" />
+	<source path="src/game" />
 
 	<haxelib name="nme" />
 	<haxelib name="HaxePunk" />

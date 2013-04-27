@@ -43,6 +43,13 @@
         <width>0</width>
         <height>0</height>
       </Row>
+      <Row>
+        <id>1</id>
+        <name>Explorer</name>
+        <path>gfx/explorer_x128.png</path>
+        <width>128</width>
+        <height>128</height>
+      </Row>
     </Table>
   </Tables>
 </Data>

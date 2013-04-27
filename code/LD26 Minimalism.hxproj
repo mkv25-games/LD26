@@ -12,12 +12,14 @@
     <movie minorVersion="0" />
     <movie platform="NME" />
     <movie background="333333" />
+    <movie preferredSDK="Haxe 3.0.0;3.0.0;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="src" />
-    <class path="C:\Motion-Twin\haxe\lib\nme/4,0,0/" />
-    <class path="C:\Motion-Twin\haxe\lib\HaxePunk/2,2,0/" />
+    <class path="src/dbvo" />
+    <class path="src/game" />
+    <class path="c:\development\haxe\lib/nme/4,0,0/" />
+    <class path="c:\development\haxe\lib/HaxePunk/2,2,0/" />
     <class path="bin/flash/haxe" />
   </classpaths>
   <!-- Build options -->

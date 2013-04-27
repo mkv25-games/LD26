@@ -1,9 +1,13 @@
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
-import game.world.MinimalistWorld;
+import world.MinimalistWorld;
 
 class Main extends Engine
 {
+	public function new()
+	{
+		super(800, 600, 40, false);
+	}
 
 	override public function init()
 	{
@@ -11,7 +15,8 @@ class Main extends Engine
 		HXP.console.enable();
 		#end
 		
-		HXP.scene = new MinimalistWorld();
+		LD.setup(this);
+		HXP.scene = LD.world;
 	}
 
 	public static function main() { new Main(); }
