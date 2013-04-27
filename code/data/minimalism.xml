@@ -50,6 +50,13 @@
         <width>128</width>
         <height>128</height>
       </Row>
+      <Row>
+        <id>2</id>
+        <name>Room</name>
+        <path>gfx/room.png</path>
+        <width>800</width>
+        <height>400</height>
+      </Row>
     </Table>
   </Tables>
 </Data>

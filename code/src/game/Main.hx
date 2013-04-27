@@ -6,7 +6,7 @@ class Main extends Engine
 {
 	public function new()
 	{
-		super(800, 600, 40, false);
+		super(800, 400, 40, false);
 	}
 
 	override public function init()
