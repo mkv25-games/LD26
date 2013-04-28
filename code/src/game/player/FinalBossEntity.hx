@@ -22,10 +22,11 @@ class FinalBossEntity extends Entity
 	
 	override public function update():Void 
 	{
-		bounceTime = bounceTime + HXP.elapsed * HXP.frameRate * 0.3;
+		bounceTime = bounceTime + HXP.elapsed * HXP.frameRate * 0.6;
 		if (bounceTime > LD.sineCurve.length)
 			bounceTime = 0;
-		y = -150 - 100 * LD.sineCurve[cast bounceTime % LD.sineCurve.length];
+		y = -100 - 20 * LD.sineCurve[cast bounceTime % LD.sineCurve.length];
+		layer = cast 1000 - y;
 	}
 	
 }

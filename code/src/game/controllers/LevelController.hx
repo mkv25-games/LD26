@@ -23,7 +23,11 @@ class LevelController implements IController
 	
 	public function update():Void
 	{
-		if (LD.world.player.x >= 400 && LD.world.currentLevel.nextAvailable())
+		if (LD.world.gameComplete && LD.world.player.x >= 400)
+		{
+			LD.world.changeController(LD.world.gameOverController);
+		}
+		else if (LD.world.player.x >= 400 && LD.world.currentLevel.nextAvailable())
 		{
 			LD.world.player.x = -390;
 			LD.world.player.idle();

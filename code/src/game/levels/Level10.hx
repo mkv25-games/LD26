@@ -35,12 +35,31 @@ class Level10 extends BaseLevel implements ILevel
 		if (!roomComplete)
 			checkRoomCompletion();
 		else
-			LD.world.setRoomText("YOU HAVE BESTED ME!");
+			LD.world.setRoomText("YOU HAVE BESTED ME! LEAVE NOW");
 	}
 	
 	public function checkRoomCompletion()
 	{
+		var list = LD.levels.getAllLevels();
 		
+		var cheesecake = true;
+		var i = 1;
+		for (level in list)
+		{
+			if (level.roomComplete == false)
+			{
+				LD.world.setRoomText("GO BACK, ROOM " + i + " IS INCOMPLETE.");
+				cheesecake = false;
+				break;
+			}
+			i++;
+		}
+		
+		if (cheesecake)
+		{
+			roomComplete = true;
+			LD.world.gameComplete = true;
+		}
 	}
 	
 	override public function exit():Void 

@@ -85,7 +85,7 @@ class RoomObjectEntity extends Entity
 		}
 	}
 	
-	public function drop()
+	public function drop(dispatchEvent:Bool=true)
 	{
 		y = LD.world.player.y;
 		layer = cast 1000 - y;
@@ -96,16 +96,22 @@ class RoomObjectEntity extends Entity
 		
 		LD.playSoundEffect(AudioEnum.BOUNCE);
 		
-		if(onDropEvent != null)
-			onDropEvent(this);
+		if (dispatchEvent)
+		{
+			if(onDropEvent != null)
+				onDropEvent(this);
+		}
 	}
 	
-	function onDropped()
+	function onDropped(dispatchEvent:Bool=true)
 	{
 		LD.playSoundEffect(AudioEnum.THUCKLE);
 		
-		if(onDroppedEvent != null)
-			onDroppedEvent(this);
+		if (dispatchEvent)
+		{
+			if(onDroppedEvent != null)
+				onDroppedEvent(this);
+		}
 	}
 	
 	public function toggleSwitch(dispatchEvent:Bool=true)

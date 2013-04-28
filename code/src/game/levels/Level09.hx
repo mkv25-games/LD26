@@ -10,7 +10,6 @@ import world.MinimalistWorld;
 
 class Level09 extends BaseLevel implements ILevel
 {
-	var plant:RoomObjectEntity;
 	var recycler:RoomObjectEntity;
 	
 	var init:Bool = false;
@@ -23,23 +22,21 @@ class Level09 extends BaseLevel implements ILevel
 		this.world = world;
 		if (init == false)
 		{
-			plant = addRoomObject(plant, RoomObjectEnum.PLANT, 0, -50);
-			
-			recycler = addRoomObject(recycler, RoomObjectEnum.BOX, 0, -100);
+			recycler = addRoomObject(recycler, RoomObjectEnum.BOX, 0, 0);
 			recycler.moveable = false;
 			recycler.toggleState = LD.getRoomObject(RoomObjectEnum.CARD_MACHINE_ON);
 			
-			addRoomObject(null, RoomObjectEnum.TABLE, -240, -50);
-			addRoomObject(null, RoomObjectEnum.TABLE, -180, -50);
-			addRoomObject(null, RoomObjectEnum.TABLE, 0, -50);
-			addRoomObject(null, RoomObjectEnum.TABLE, 180, -50);
-			addRoomObject(null, RoomObjectEnum.TABLE, -240, -50);
+			addRoomObject(null, RoomObjectEnum.TABLE, -200, -70);
+			addRoomObject(null, RoomObjectEnum.TABLE, -100, -70);
+			addRoomObject(null, RoomObjectEnum.TABLE, 0, -70);
+			addRoomObject(null, RoomObjectEnum.TABLE, 100, -70);
+			addRoomObject(null, RoomObjectEnum.TABLE, 200, -70);
 			
-			addRoomObject(null, RoomObjectEnum.STAR, -240, -100);
-			addRoomObject(null, RoomObjectEnum.TELEPHONE, -180, -100);
-			addRoomObject(null, RoomObjectEnum.PASS_CARD, 0, -100);
-			addRoomObject(null, RoomObjectEnum.LAMP_ON, 180, -100);
-			addRoomObject(null, RoomObjectEnum.TV, 240, -100);
+			addRoomObject(null, RoomObjectEnum.STAR, -200, -110);
+			addRoomObject(null, RoomObjectEnum.TELEPHONE, -110, -110);
+			addRoomObject(null, RoomObjectEnum.PASS_CARD, 0, -110);
+			addRoomObject(null, RoomObjectEnum.LAMP_ON, 100, -110);
+			addRoomObject(null, RoomObjectEnum.TV, 200, -110);
 			
 			init = true;
 		}
@@ -49,6 +46,9 @@ class Level09 extends BaseLevel implements ILevel
 			if (item.roomObject.id == RoomObjectEnum.TABLE)
 			{
 				item.moveable = false;
+			}
+			else
+			{
 				item.onDropEvent = onItemDrop;
 			}
 		}
@@ -67,7 +67,7 @@ class Level09 extends BaseLevel implements ILevel
 	
 	public function onItemDrop(item:RoomObjectEntity)
 	{
-		if (!item.on && item.collideWith(recycler, item.x, item.y) != null && !recycler.on)
+		if (item.collideWith(recycler, item.x, item.y) != null && !recycler.on)
 		{
 			Actuate.timer(1.0).onComplete(onItemProcessed, [item]);
 			
@@ -78,41 +78,42 @@ class Level09 extends BaseLevel implements ILevel
 	
 	function onItemProcessed(item:RoomObjectEntity)
 	{
-		if (item.on && item.toggleState.id == RoomObjectEnum.BAR_GREEN)
-		{
+		// transformation rules
+		if (item.roomObject.id == RoomObjectEnum.STAR)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.TELEPHONE);
+		
+		else if (item.roomObject.id == RoomObjectEnum.TELEPHONE)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.PASS_CARD);
+		
+		else if (item.roomObject.id == RoomObjectEnum.PASS_CARD)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.LAMP_ON);
+			
+		else if (item.roomObject.id == RoomObjectEnum.LAMP_ON)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.TV);
+			
+		else if (item.roomObject.id == RoomObjectEnum.TV)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.STAR);
+		
+		else if (item.roomObject.id == RoomObjectEnum.BROKEN_TV)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.TV);
+			
+		else if (item.roomObject.id == RoomObjectEnum.BAR_GREEN)
 			item.roomObject = LD.getRoomObject(RoomObjectEnum.PLANT);
-			item.toggleSwitch(false);
-		}
-		else
-		{
-			if (item.roomObject.id == RoomObjectEnum.STAR)
-				item.roomObject = LD.getRoomObject(RoomObjectEnum.TELEPHONE);
 			
-			if (item.roomObject.id == RoomObjectEnum.TELEPHONE)
-				item.roomObject = LD.getRoomObject(RoomObjectEnum.PASS_CARD);
-			
-			if (item.roomObject.id == RoomObjectEnum.PASS_CARD)
-				item.roomObject = LD.getRoomObject(RoomObjectEnum.LAMP_ON);
-				
-			if (item.roomObject.id == RoomObjectEnum.LAMP_ON)
-				item.roomObject = LD.getRoomObject(RoomObjectEnum.TV);
-				
-			if (item.roomObject.id == RoomObjectEnum.TV)
-				item.roomObject = LD.getRoomObject(RoomObjectEnum.STAR);
-			
-			if (item.roomObject.id == RoomObjectEnum.BROKEN_TV)
-				item.roomObject = LD.getRoomObject(RoomObjectEnum.TV);
-				
-			item.on = true;
-			item.toggleSwitch(false);
-		}
-			
+		else if (item.on && item.toggleState.id == RoomObjectEnum.BAR_GREEN)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.PLANT);
+		
+		// change the item
+		item.on = true;
+		item.toggleSwitch(false);
 		item.visible = true;
-		recycler.toggleSwitch(false);
 			
 		item.x = recycler.x - 25 + Math.random() * 50;
 		item.y = recycler.y + Math.random() * 20;
-		item.drop();
+		item.drop(false);
+		
+		// reset the recycler
+		recycler.toggleSwitch(false);
 		
 		if (tasksCompleted == 0 && item.roomObject.id == RoomObjectEnum.STAR)
 			tasksCompleted = 1;

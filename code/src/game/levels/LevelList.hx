@@ -4,6 +4,7 @@ import api.ILevel;
 class LevelList 
 {
 	var map:Map<Int, ILevel>;
+	var list:List<ILevel>;
 
 	public function new() 
 	{
@@ -24,5 +25,19 @@ class LevelList
 	public function getLevel(id:Int)
 	{
 		return map.get(id);
+	}
+	
+	public function getAllLevels():List<ILevel>
+	{
+		if (list == null)
+		{
+			list = new List<ILevel>();
+			for (item in map)
+			{
+				list.add(item);
+			}
+		}
+		
+		return list;
 	}
 }

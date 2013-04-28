@@ -41,7 +41,7 @@ class PlayerEntity extends Entity
 		pickUp = false;
 		
 		addGraphic(spritemap);
-		setHitbox(60, 100, 30, 100);
+		setHitbox(60, 60, 30, 60);
 		type = "player";
 	}
 	

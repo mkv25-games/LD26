@@ -60,7 +60,7 @@ class Level08 extends BaseLevel implements ILevel
 			_nextLevel = LD.levels.getLevel(9);
 			
 		if(!roomComplete)
-			LD.world.setRoomText("DULL AND BORING PROCESSING PLANT");
+			LD.world.setRoomText("DULL MATERIAL PROCESSING PLANT");
 		else
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
