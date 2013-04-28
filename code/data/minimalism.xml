@@ -141,7 +141,7 @@
         <artwork>3</artwork>
         <artIndex>5</artIndex>
         <description>One of those waste paper basket things</description>
-        <pickupSound>11</pickupSound>
+        <pickupSound>4</pickupSound>
       </Row>
       <Row>
         <id>8</id>
@@ -172,12 +172,12 @@
         <name>Box</name>
         <artwork>3</artwork>
         <artIndex>9</artIndex>
-        <description>Its a box</description>
+        <description>A box that can accept some sort of token</description>
         <pickupSound>13</pickupSound>
       </Row>
       <Row>
         <id>12</id>
-        <name>Lamp</name>
+        <name>Lamp Off</name>
         <artwork>3</artwork>
         <artIndex>10</artIndex>
         <description>A lampshade</description>
@@ -185,7 +185,7 @@
       </Row>
       <Row>
         <id>13</id>
-        <name>Card</name>
+        <name>Pass Card</name>
         <artwork>3</artwork>
         <artIndex>11</artIndex>
         <description>A pass card</description>
@@ -193,7 +193,7 @@
       </Row>
       <Row>
         <id>14</id>
-        <name>Plug</name>
+        <name>Plug Off</name>
         <artwork>3</artwork>
         <artIndex>12</artIndex>
         <description>Futuristic plug socket</description>
@@ -253,6 +253,94 @@
         <artwork>3</artwork>
         <artIndex>19</artIndex>
         <description>Move a little further</description>
+        <pickupSound>10</pickupSound>
+      </Row>
+      <Row>
+        <id>24</id>
+        <name>Space Bar Down</name>
+        <artwork>3</artwork>
+        <artIndex>20</artIndex>
+        <description>Toggle and tinkle and throw your toys around</description>
+        <pickupSound>1</pickupSound>
+      </Row>
+      <Row>
+        <id>25</id>
+        <name>Broken TV</name>
+        <artwork>3</artwork>
+        <artIndex>21</artIndex>
+        <description>Nasty things, destroy them all</description>
+        <pickupSound>11</pickupSound>
+      </Row>
+      <Row>
+        <id>26</id>
+        <name>Star Level 1</name>
+        <artwork>3</artwork>
+        <artIndex>22</artIndex>
+        <description>Prettier then the last one</description>
+        <pickupSound>9</pickupSound>
+      </Row>
+      <Row>
+        <id>27</id>
+        <name>Star Level 2</name>
+        <artwork>3</artwork>
+        <artIndex>23</artIndex>
+        <description>Shinier then ever</description>
+        <pickupSound>9</pickupSound>
+      </Row>
+      <Row>
+        <id>28</id>
+        <name>Star Level 3</name>
+        <artwork>3</artwork>
+        <artIndex>24</artIndex>
+        <description>Glossy in the middle</description>
+        <pickupSound>9</pickupSound>
+      </Row>
+      <Row>
+        <id>29</id>
+        <name>Star Level 4</name>
+        <artwork>3</artwork>
+        <artIndex>25</artIndex>
+        <description>Brighter then a baby's bottom</description>
+        <pickupSound>9</pickupSound>
+      </Row>
+      <Row>
+        <id>30</id>
+        <name>Star Level 5</name>
+        <artwork>3</artwork>
+        <artIndex>26</artIndex>
+        <description>Blinging!</description>
+        <pickupSound>9</pickupSound>
+      </Row>
+      <Row>
+        <id>31</id>
+        <name>Plug On</name>
+        <artwork>3</artwork>
+        <artIndex>27</artIndex>
+        <description>Glowin with arcane energies</description>
+        <pickupSound>12</pickupSound>
+      </Row>
+      <Row>
+        <id>36</id>
+        <name>Bar Green</name>
+        <artwork>3</artwork>
+        <artIndex>28</artIndex>
+        <description>A bar made of green, possibly edible</description>
+        <pickupSound>3</pickupSound>
+      </Row>
+      <Row>
+        <id>38</id>
+        <name>Lamp On</name>
+        <artwork>3</artwork>
+        <artIndex>29</artIndex>
+        <description>Its turned on if you know what I mean</description>
+        <pickupSound>4</pickupSound>
+      </Row>
+      <Row>
+        <id>40</id>
+        <name>Card Machine On</name>
+        <artwork>3</artwork>
+        <artIndex>30</artIndex>
+        <description>Pass card accepted</description>
         <pickupSound>10</pickupSound>
       </Row>
     </Table>

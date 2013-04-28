@@ -17,11 +17,11 @@ class Level01 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		left = addRoomObject(left, RoomObjectEnum.LEFT_ARROW, -200, -10);
-		right = addRoomObject(right, RoomObjectEnum.RIGHT_ARROW, -100, -30);
+		left = addRoomObject(left, RoomObjectEnum.LEFT_ARROW, -200, -45);
+		right = addRoomObject(right, RoomObjectEnum.RIGHT_ARROW, -100, -45);
 		space = addRoomObject(space, RoomObjectEnum.SPACE_BAR, 0, -120);
-		up = addRoomObject(up, RoomObjectEnum.UP_ARROW, 100, -30);
-		down = addRoomObject(down, RoomObjectEnum.DOWN_ARROW, 200, -10);
+		up = addRoomObject(up, RoomObjectEnum.UP_ARROW, 100, -45);
+		down = addRoomObject(down, RoomObjectEnum.DOWN_ARROW, 200, -45);
 
 		left.moveable = true;
 		right.moveable = true;
@@ -31,5 +31,7 @@ class Level01 extends BaseLevel implements ILevel
 		
 		if (_nextLevel == null)
 			_nextLevel = LD.levels.getLevel(2);
+			
+		LD.world.setRoomText("INSTRUCTION ROOM");
 	}
 }

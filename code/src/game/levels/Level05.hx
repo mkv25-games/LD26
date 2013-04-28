@@ -15,9 +15,9 @@ class Level05 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		xobj = addRoomObject(xobj, RoomObjectEnum.LAMP, -150, 0);
-		yobj = addRoomObject(yobj, RoomObjectEnum.CARD, 0, -50);
-		zobj = addRoomObject(zobj, RoomObjectEnum.PLUG, 150, 0);
+		xobj = addRoomObject(xobj, RoomObjectEnum.LAMP_OFF, -150, 0);
+		yobj = addRoomObject(yobj, RoomObjectEnum.PASS_CARD, 0, -50);
+		zobj = addRoomObject(zobj, RoomObjectEnum.PLUG_OFF, 150, 0);
 		
 		zobj.moveable = false;
 		

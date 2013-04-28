@@ -17,7 +17,7 @@ class Level03 extends BaseLevel implements ILevel
 		this.world = world;
 		tv = addRoomObject(tv, RoomObjectEnum.TV, -200, 5);
 		table = addRoomObject(table, RoomObjectEnum.TABLE, 100, -60);
-		lamp = addRoomObject(lamp, RoomObjectEnum.LAMP, 250, -50);
+		lamp = addRoomObject(lamp, RoomObjectEnum.LAMP_OFF, 250, -50);
 		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(2);

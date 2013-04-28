@@ -16,7 +16,7 @@ class Level10 extends BaseLevel implements ILevel
 	{
 		this.world = world;
 		xobj = addRoomObject(xobj, RoomObjectEnum.TABLE, -150, 0);
-		yobj = addRoomObject(yobj, RoomObjectEnum.LAMP, 0, -50);
+		yobj = addRoomObject(yobj, RoomObjectEnum.LAMP_OFF, 0, -50);
 		zobj = addRoomObject(zobj, RoomObjectEnum.TABLE, 150, 0);
 		
 		if (_previousLevel == null)

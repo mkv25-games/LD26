@@ -21,6 +21,7 @@ class MinimalistWorld extends Scene
 	public var currentLevel:ILevel;
 	public var controller:IController;
 	public var messageText:Text;
+	public var roomText:Text;
 	
 	public var defaultController:IController;
 	public var fadeInController:FadeInController;
@@ -46,7 +47,8 @@ class MinimalistWorld extends Scene
 		room.layer = 5000;
 		
 		player = cast add(new PlayerEntity());
-		player.x = -60;
+		player.x = -300;
+		player.direction = 1;
 		
 		for (item in LD.data.ROOM_OBJECT.rowList)
 		{
@@ -54,9 +56,13 @@ class MinimalistWorld extends Scene
 			trace(itemCast.name + ", " + itemCast.artwork.path);
 		}
 		
-		var textOptions = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 18, color: 0x675F5F, resizable: false, wordWrap: true };
-		messageText = new Text("Welcome to the Game", -100, -250, 200, 60, textOptions);
+		var textOptions1 = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 18, color: 0x675F5F, resizable: false, wordWrap: true };
+		messageText = new Text("Welcome to the Game", -100, -250, 200, 60, textOptions1);
 		addGraphic(messageText);
+		
+		var textOptions2 = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 24, color: 0xBAA7A7, resizable: false, wordWrap: true };
+		roomText = new Text("BEGIN", -250, -290, 500, 60, textOptions2);
+		addGraphic(roomText);
 		
 		changeController(fadeInController);
 		changeLevel(LD.levels.getLevel(1));
@@ -120,5 +126,11 @@ class MinimalistWorld extends Scene
 	{
 		messageText.text = text;
 		messageText.x = Math.round(player.x - messageText.textWidth / 2);
+	}
+	
+	public function setRoomText(text:String)
+	{
+		roomText.text = text;
+		roomText.x = Math.round(- roomText.textWidth / 2);
 	}
 }
