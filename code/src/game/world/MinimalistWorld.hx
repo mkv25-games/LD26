@@ -65,11 +65,14 @@ class MinimalistWorld extends Scene
 		player.x = -300;
 		player.direction = 1;
 		
+		/*
 		for (item in LD.data.ROOM_OBJECT.rowList)
 		{
 			var itemCast:RoomObjectRow = cast item;
 			trace(itemCast.name + ", " + itemCast.artwork.path);
 		}
+		*/
+		
 		var textOptions2 = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 24, color: 0xBAA7A7, resizable: false, wordWrap: true };
 		roomText = new Text("BEGIN", -250, -285, 500, 60, textOptions2);
 		addGraphic(roomText);
