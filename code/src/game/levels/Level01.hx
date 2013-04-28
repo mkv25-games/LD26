@@ -19,6 +19,9 @@ class Level01 extends BaseLevel implements ILevel
 		space = addRoomObject(RoomObjectEnum.SPACE_BAR, 0, -80);
 		right = addRoomObject(RoomObjectEnum.RIGHT_ARROW, 200, -30);
 
+		left.moveable = true;
+		right.moveable = true;
+		
 		if (_nextLevel == null)
 			_nextLevel = LD.levels.getLevel(2);
 	}

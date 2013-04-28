@@ -4,6 +4,7 @@ import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
+import levels.RoomObjectEntity;
 import net.mkv25.ld26.dbvos.ArtworkRow;
 import net.mkv25.ld26.enums.ArtworkEnum;
 import nme.geom.Point;
@@ -15,6 +16,9 @@ class PlayerEntity extends Entity
 	var acceleration:Point;
 	var pickUp:Bool;
 	var standingUp:Bool;
+	var carryObject:RoomObjectEntity;
+	
+	public var direction:Int;
 	
 	public function new() 
 	{
@@ -29,20 +33,31 @@ class PlayerEntity extends Entity
 		spritemap.add("sit", [16, 17, 18, 19], 12, false);
 		spritemap.add("stand", [19, 18, 17, 16, 7], 12, false);
 		spritemap.play("idle");
-		spritemap.y = - spritemap.height + 50;
 		spritemap.x = - spritemap.width / 2;
+		spritemap.y = - spritemap.height + 20;
 		
 		velocity = new Point();
 		acceleration = new Point();
 		pickUp = false;
-		y = -20;
 		
 		addGraphic(spritemap);
+		setHitbox(60, 100, 30, 100);
+		type = "player";
 	}
 	
 	public function idle()
 	{
 		spritemap.play("idle");
+	}
+	
+	public function tryPickUp(object:RoomObjectEntity):Bool
+	{
+		if (carryObject != null)
+			return false;
+		
+		pickUp = true;
+		carryObject = object;
+		return true;
 	}
 	
 	public function playerUpdate():Void 
@@ -55,6 +70,11 @@ class PlayerEntity extends Entity
 		acceleration.x = 0.0;
 		acceleration.y = 0.0;
 		layer = cast 1000 - y;
+		
+		if (collide("room_object", x, y) == null)
+		{
+			LD.world.setMessageText("");
+		}
 		
 		if (Input.check(Key.UP))
 		{
@@ -74,6 +94,14 @@ class PlayerEntity extends Entity
 			acceleration.x = 3;
 		}
 		
+		if (Input.pressed(Key.SPACE))
+		{
+			if (!pickUp && carryObject != null)
+			{
+				dropObject();
+			}
+		}
+		
 		if (!standingUp && !pickUp)
 		{
 			velocity.x = HXP.clamp(velocity.x + acceleration.x, -10.0, 10.0);
@@ -84,7 +112,10 @@ class PlayerEntity extends Entity
 		{
 			spritemap.play("sit");
 			if (spritemap.frame == 19)
+			{
+				pickUp = false;
 				standingUp = true;
+			}
 		}
 		else if (standingUp)
 		{
@@ -100,14 +131,15 @@ class PlayerEntity extends Entity
 			
 				if (velocity.x > 0)
 				{
-					spritemap.scaleX = 1.0;
+					direction = 1;
 					spritemap.x = - spritemap.width / 2;
 				}
 				else if (velocity.x < 0)
 				{
-					spritemap.scaleX = -1.0;
+					direction = -1;
 					spritemap.x = spritemap.width / 2;
 				}
+					spritemap.scaleX = direction;
 			}
 			else
 			{
@@ -116,7 +148,20 @@ class PlayerEntity extends Entity
 		}
 		
 		x = HXP.clamp(x + velocity.x, -400, 400);
-		y = HXP.clamp(y + velocity.y, -60, -20);
+		y = HXP.clamp(y + velocity.y, -60, 0);
+		
+		if (carryObject != null)
+		{
+			carryObject.x = x;
+			carryObject.y = y - 50;
+			carryObject.layer = this.layer - 1;
+		}
+	}
+	
+	function dropObject()
+	{
+		carryObject.drop();
+		carryObject = null;
 	}
 	
 }

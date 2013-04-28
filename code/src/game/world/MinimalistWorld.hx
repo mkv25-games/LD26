@@ -2,7 +2,9 @@ package world;
 
 import api.IController;
 import api.ILevel;
+import nme.text.TextFormatAlign;
 import com.haxepunk.graphics.Stamp;
+import com.haxepunk.graphics.Text;
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
 import controllers.FadeInController;
@@ -18,6 +20,7 @@ class MinimalistWorld extends Scene
 	public var player:PlayerEntity;
 	public var currentLevel:ILevel;
 	public var controller:IController;
+	public var messageText:Text;
 	
 	public var defaultController:IController;
 	public var fadeInController:FadeInController;
@@ -34,11 +37,12 @@ class MinimalistWorld extends Scene
 	
 	override public function begin()
 	{
+		var floorHeight = 90;
 		camera.x = - HXP.stage.stageWidth / 2;
-		camera.y = -HXP.stage.height + 100;
+		camera.y = -HXP.stage.height + floorHeight;
 		
 		var roomArtwork = LD.data.ARTWORK.getRowCast(ArtworkEnum.ROOM);
-		var room = addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + 100));
+		var room = addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + floorHeight));
 		room.layer = 5000;
 		
 		changeLevel(LD.levels.getLevel(1));
@@ -52,6 +56,10 @@ class MinimalistWorld extends Scene
 			var itemCast:RoomObjectRow = cast item;
 			trace(itemCast.name + ", " + itemCast.artwork.path);
 		}
+		
+		var textOptions = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 18, color: 0x675F5F, resizable: false, wordWrap: true };
+		messageText = new Text("Welcome to the Game", -100, -250, 200, 60, textOptions);
+		addGraphic(messageText);
 	}
 	
 	public function changeController(newController:IController)
@@ -94,5 +102,11 @@ class MinimalistWorld extends Scene
 		
 		if (controller != null)
 			controller.update();
+	}
+	
+	public function setMessageText(text:String)
+	{
+		messageText.text = text;
+		messageText.x = Math.round(player.x - messageText.textWidth / 2);
 	}
 }
