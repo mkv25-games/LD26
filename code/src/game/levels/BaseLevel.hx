@@ -9,7 +9,9 @@ import com.haxepunk.Scene;
 class BaseLevel 
 {
 	var world:Scene;
+	
 	public var roomObjects:List<RoomObjectEntity>;
+	public var roomComplete:Bool;
 	
 	var _nextLevel:ILevel;
 	var _previousLevel:ILevel;
@@ -17,6 +19,12 @@ class BaseLevel
 	public function new() 
 	{
 		roomObjects = new List<RoomObjectEntity>();
+		roomComplete = false;
+	}
+	
+	public function update()
+	{
+		// override for custom level conditions
 	}
 	
 	public function addRoomObject(existing:RoomObjectEntity, id:Int, x:Int, y:Int):RoomObjectEntity

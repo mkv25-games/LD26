@@ -120,6 +120,9 @@ class MinimalistWorld extends Scene
 		
 		if (controller != null)
 			controller.update();
+			
+		if (currentLevel != null)
+			currentLevel.update();
 	}
 	
 	public function setMessageText(text:String)
