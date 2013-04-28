@@ -8,4 +8,5 @@ class ArtworkEnum implements IDBVOEnum
 	inline public static var NO_ARTWORK:Int = 0;
 	inline public static var EXPLORER:Int = 1;
 	inline public static var ROOM:Int = 2;
+	inline public static var STUFF:Int = 3;
 }

@@ -16,6 +16,7 @@ class DBVOsModel implements IDBVOsModel
 	// code generated list of all tables
 	public var GLOBAL:GlobalTable;
 	public var ARTWORK:ArtworkTable;
+	public var ROOM_OBJECT:RoomObjectTable;
 	
 	public function new()
 	{
@@ -32,6 +33,7 @@ class DBVOsModel implements IDBVOsModel
 		// code generated list of all tables
 		GLOBAL = cast index(new GlobalTable(dbvos).init());
 		ARTWORK = cast index(new ArtworkTable(dbvos).init());
+		ROOM_OBJECT = cast index(new RoomObjectTable(dbvos).init());
 			
 		_loaded = true;
 	}

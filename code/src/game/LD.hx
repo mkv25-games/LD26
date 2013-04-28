@@ -1,5 +1,6 @@
 package;
 import com.haxepunk.Engine;
+import net.mkv25.ld26.dbvos.RoomObjectRow;
 import world.MinimalistWorld;
 import net.mkv25.ld26.dbvos.DBVOsModel;
 
@@ -47,5 +48,10 @@ class LD
 			throw "Could not find global value with the ID: " + id;
 			
 		return row.value;
+	}
+	
+	public static function getRoomObject(id:Int):RoomObjectRow
+	{
+		return data.ROOM_OBJECT.getRowCast(id);
 	}
 }

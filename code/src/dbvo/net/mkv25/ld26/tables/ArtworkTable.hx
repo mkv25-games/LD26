@@ -27,6 +27,7 @@ class ArtworkTable implements IDBVOTable
 		var row0:ArtworkRow = cast index(new ArtworkRow(dbvos).init(0, "No Artwork", "", 0, 0));
 		var row1:ArtworkRow = cast index(new ArtworkRow(dbvos).init(1, "Explorer", "gfx/explorer_x128.png", 128, 128));
 		var row2:ArtworkRow = cast index(new ArtworkRow(dbvos).init(2, "Room", "gfx/room.png", 800, 400));
+		var row3:ArtworkRow = cast index(new ArtworkRow(dbvos).init(3, "Stuff", "gfx/stuff.png", 64, 64));
 			
 		return this;
 	}
