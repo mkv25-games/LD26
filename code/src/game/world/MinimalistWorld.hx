@@ -19,7 +19,7 @@ import player.PlayerEntity;
 
 class MinimalistWorld extends Scene
 {
-	var floorHeight = 90;
+	var floorHeight = 100;
 		
 	public var player:PlayerEntity;
 	public var currentLevel:ILevel;

@@ -3,6 +3,7 @@ package controllers;
 import api.IController;
 import com.haxepunk.graphics.Text;
 import motion.easing.Quad;
+import net.mkv25.ld26.enums.ArtworkEnum;
 import nme.display.BitmapData;
 import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
@@ -24,9 +25,9 @@ class GameOverController implements IController
 	{
 		if (cover == null)
 		{
-			var b:BitmapData = new BitmapData(800, 400, false, 0x000000);
-			cover = new Image(b);
-			cover.layer = 1;
+			var artwork = LD.data.ARTWORK.getRowCast(ArtworkEnum.GAME_OVER_SCREEN);
+			cover = new Image(artwork.path);
+			cover.layer = 3;
 		}
 		
 		LD.world.addGraphic(cover);
@@ -35,10 +36,6 @@ class GameOverController implements IController
 		cover.alpha = 0.0;
 		cover.visible = true;
 		Actuate.tween(cover, 1.5, { alpha: 1.0 } ).onComplete(onFadeComplete).ease(Quad.easeOut);
-		
-		var textOptions = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 24, color: 0xBAA7A7, resizable: false, wordWrap: true };
-		var gameOverText = new Text("THANKS FOR PLAYING", -250, -200, 500, 60, textOptions);
-		LD.world.addGraphic(gameOverText);
 	}
 	
 	public function update():Void

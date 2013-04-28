@@ -91,11 +91,11 @@ class Level09 extends BaseLevel implements ILevel
 		else if (item.roomObject.id == RoomObjectEnum.LAMP_ON)
 			item.roomObject = LD.getRoomObject(RoomObjectEnum.TV);
 			
-		else if (item.roomObject.id == RoomObjectEnum.TV)
-			item.roomObject = LD.getRoomObject(RoomObjectEnum.STAR);
-		
 		else if (item.roomObject.id == RoomObjectEnum.BROKEN_TV)
 			item.roomObject = LD.getRoomObject(RoomObjectEnum.TV);
+			
+		else if (item.roomObject.id == RoomObjectEnum.TV)
+			item.roomObject = LD.getRoomObject(RoomObjectEnum.STAR);
 			
 		else if (item.roomObject.id == RoomObjectEnum.BAR_GREEN)
 			item.roomObject = LD.getRoomObject(RoomObjectEnum.PLANT);

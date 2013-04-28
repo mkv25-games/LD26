@@ -78,6 +78,13 @@
         <width>800</width>
         <height>400</height>
       </Row>
+      <Row>
+        <id>10</id>
+        <name>Game Over Screen</name>
+        <path>gfx/game_over_page.png</path>
+        <width>800</width>
+        <height>400</height>
+      </Row>
     </Table>
     <Table>
       <Schema>

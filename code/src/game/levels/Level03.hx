@@ -84,6 +84,9 @@ class Level03 extends BaseLevel implements ILevel
 	
 	function checkRoomCompletion()
 	{
+		if (LD.world.currentLevel != this)
+			return;
+		
 		if (tvBroken && !lampLit)
 		{
 			LD.world.setRoomText("BROKEN CODERS LOUNGE");
