@@ -17,6 +17,7 @@ class DBVOsModel implements IDBVOsModel
 	public var GLOBAL:GlobalTable;
 	public var ARTWORK:ArtworkTable;
 	public var ROOM_OBJECT:RoomObjectTable;
+	public var AUDIO:AudioTable;
 	
 	public function new()
 	{
@@ -34,6 +35,7 @@ class DBVOsModel implements IDBVOsModel
 		GLOBAL = cast index(new GlobalTable(dbvos).init());
 		ARTWORK = cast index(new ArtworkTable(dbvos).init());
 		ROOM_OBJECT = cast index(new RoomObjectTable(dbvos).init());
+		AUDIO = cast index(new AudioTable(dbvos).init());
 			
 		_loaded = true;
 	}

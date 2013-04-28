@@ -81,6 +81,11 @@
           <Name>description</Name>
           <Type>string</Type>
         </Field>
+        <Field>
+          <Name>pickupSound</Name>
+          <Type>lookup</Type>
+          <Lookup>Audio</Lookup>
+        </Field>
       </Schema>
       <Row>
         <id>1</id>
@@ -88,6 +93,7 @@
         <artwork>0</artwork>
         <artIndex>-1</artIndex>
         <description />
+        <pickupSound />
       </Row>
       <Row>
         <id>2</id>
@@ -95,6 +101,7 @@
         <artwork>3</artwork>
         <artIndex>0</artIndex>
         <description>Scrap paper on the ground</description>
+        <pickupSound>13</pickupSound>
       </Row>
       <Row>
         <id>3</id>
@@ -102,6 +109,7 @@
         <artwork>3</artwork>
         <artIndex>1</artIndex>
         <description>More of this scrap paper, wasted ideas</description>
+        <pickupSound>14</pickupSound>
       </Row>
       <Row>
         <id>4</id>
@@ -109,6 +117,7 @@
         <artwork>3</artwork>
         <artIndex>2</artIndex>
         <description>Stroll to the left</description>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>5</id>
@@ -116,6 +125,7 @@
         <artwork>3</artwork>
         <artIndex>3</artIndex>
         <description>Stroll to the right</description>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>6</id>
@@ -123,6 +133,7 @@
         <artwork>3</artwork>
         <artIndex>4</artIndex>
         <description>Pick and push and flick and drop and things</description>
+        <pickupSound>0</pickupSound>
       </Row>
       <Row>
         <id>7</id>
@@ -130,6 +141,7 @@
         <artwork>3</artwork>
         <artIndex>5</artIndex>
         <description>One of those waste paper basket things</description>
+        <pickupSound>11</pickupSound>
       </Row>
       <Row>
         <id>8</id>
@@ -137,6 +149,7 @@
         <artwork>3</artwork>
         <artIndex>6</artIndex>
         <description>One of those old school televisions</description>
+        <pickupSound>8</pickupSound>
       </Row>
       <Row>
         <id>9</id>
@@ -144,6 +157,7 @@
         <artwork>3</artwork>
         <artIndex>7</artIndex>
         <description>A bright shining star</description>
+        <pickupSound>9</pickupSound>
       </Row>
       <Row>
         <id>10</id>
@@ -151,6 +165,7 @@
         <artwork>3</artwork>
         <artIndex>8</artIndex>
         <description>A dull and uninspiring block</description>
+        <pickupSound>3</pickupSound>
       </Row>
       <Row>
         <id>11</id>
@@ -158,6 +173,7 @@
         <artwork>3</artwork>
         <artIndex>9</artIndex>
         <description>Its a box</description>
+        <pickupSound>13</pickupSound>
       </Row>
       <Row>
         <id>12</id>
@@ -165,6 +181,7 @@
         <artwork>3</artwork>
         <artIndex>10</artIndex>
         <description>A lampshade</description>
+        <pickupSound>14</pickupSound>
       </Row>
       <Row>
         <id>13</id>
@@ -172,6 +189,7 @@
         <artwork>3</artwork>
         <artIndex>11</artIndex>
         <description>A pass card</description>
+        <pickupSound>7</pickupSound>
       </Row>
       <Row>
         <id>14</id>
@@ -179,6 +197,7 @@
         <artwork>3</artwork>
         <artIndex>12</artIndex>
         <description>Futuristic plug socket</description>
+        <pickupSound>2</pickupSound>
       </Row>
       <Row>
         <id>15</id>
@@ -186,6 +205,7 @@
         <artwork>3</artwork>
         <artIndex>13</artIndex>
         <description>Turn the lights on</description>
+        <pickupSound>8</pickupSound>
       </Row>
       <Row>
         <id>16</id>
@@ -193,6 +213,7 @@
         <artwork>3</artwork>
         <artIndex>14</artIndex>
         <description>Turn the lights off</description>
+        <pickupSound>6</pickupSound>
       </Row>
       <Row>
         <id>17</id>
@@ -200,6 +221,7 @@
         <artwork>3</artwork>
         <artIndex>15</artIndex>
         <description>A small table</description>
+        <pickupSound>13</pickupSound>
       </Row>
       <Row>
         <id>19</id>
@@ -207,6 +229,7 @@
         <artwork>3</artwork>
         <artIndex>16</artIndex>
         <description>Ring ring... ring ring? Sure is lonely in here</description>
+        <pickupSound>7</pickupSound>
       </Row>
       <Row>
         <id>20</id>
@@ -214,6 +237,7 @@
         <artwork>3</artwork>
         <artIndex>17</artIndex>
         <description>Chlorophyll in action</description>
+        <pickupSound>12</pickupSound>
       </Row>
       <Row>
         <id>21</id>
@@ -221,6 +245,7 @@
         <artwork>3</artwork>
         <artIndex>18</artIndex>
         <description>Move a little closer</description>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>23</id>
@@ -228,6 +253,91 @@
         <artwork>3</artwork>
         <artIndex>19</artIndex>
         <description>Move a little further</description>
+        <pickupSound>10</pickupSound>
+      </Row>
+    </Table>
+    <Table>
+      <Schema>
+        <Name>Audio</Name>
+        <Field>
+          <Name>path</Name>
+          <Type>string</Type>
+        </Field>
+      </Schema>
+      <Row>
+        <id>0</id>
+        <name>Blip Select</name>
+        <path>sfx/Blip_Select.mp3</path>
+      </Row>
+      <Row>
+        <id>1</id>
+        <name>Bloople</name>
+        <path>sfx/Bloople.mp3</path>
+      </Row>
+      <Row>
+        <id>2</id>
+        <name>Bounce</name>
+        <path>sfx/Bounce.mp3</path>
+      </Row>
+      <Row>
+        <id>3</id>
+        <name>Deung</name>
+        <path>sfx/Dueng.mp3</path>
+      </Row>
+      <Row>
+        <id>4</id>
+        <name>Dupe</name>
+        <path>sfx/Dupe.mp3</path>
+      </Row>
+      <Row>
+        <id>5</id>
+        <name>Explosion</name>
+        <path>sfx/Explosion.mp3</path>
+      </Row>
+      <Row>
+        <id>6</id>
+        <name>Pewt</name>
+        <path>sfx/Pewt.mp3</path>
+      </Row>
+      <Row>
+        <id>7</id>
+        <name>Pickup Coin</name>
+        <path>sfx/Pickup_Coin.mp3</path>
+      </Row>
+      <Row>
+        <id>8</id>
+        <name>Piew</name>
+        <path>sfx/Piew.mp3</path>
+      </Row>
+      <Row>
+        <id>9</id>
+        <name>Ping Blip</name>
+        <path>sfx/Ping Blip.mp3</path>
+      </Row>
+      <Row>
+        <id>10</id>
+        <name>Powerup</name>
+        <path>sfx/Powerup.mp3</path>
+      </Row>
+      <Row>
+        <id>11</id>
+        <name>Scream Explode</name>
+        <path>sfx/Scream Explode.mp3</path>
+      </Row>
+      <Row>
+        <id>12</id>
+        <name>Squeel</name>
+        <path>sfx/Squeel.mp3</path>
+      </Row>
+      <Row>
+        <id>13</id>
+        <name>Thuck</name>
+        <path>sfx/Thuck.mp3</path>
+      </Row>
+      <Row>
+        <id>14</id>
+        <name>Thuckle</name>
+        <path>sfx/Thuckle.mp3</path>
       </Row>
     </Table>
   </Tables>

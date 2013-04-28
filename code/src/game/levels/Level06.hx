@@ -19,6 +19,8 @@ class Level06 extends BaseLevel implements ILevel
 		yobj = addRoomObject(yobj, RoomObjectEnum.TABLE, 0, 0);
 		zobj = addRoomObject(zobj, RoomObjectEnum.TELEPHONE, 150, -50);
 		
+		xobj.moveable = false;
+		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(5);
 			

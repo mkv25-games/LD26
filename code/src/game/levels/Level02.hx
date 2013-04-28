@@ -16,8 +16,12 @@ class Level02 extends BaseLevel implements ILevel
 	{
 		this.world = world;
 		wp1 = addRoomObject(wp1, RoomObjectEnum.WASTE_PAPER_1, -200, 5);
-		wp2 = addRoomObject(wp2, RoomObjectEnum.WASTE_PAPER_2, 100, -60);
+		wp2 = addRoomObject(wp2, RoomObjectEnum.WASTE_PAPER_2, 0, -60);
 		wpb = addRoomObject(wpb, RoomObjectEnum.WASTE_BASKET, 150, -50);
+		
+		wp1.moveable = true;
+		wp2.moveable = true;
+		wpb.moveable = true;
 		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(1);

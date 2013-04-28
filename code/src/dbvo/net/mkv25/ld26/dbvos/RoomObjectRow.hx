@@ -12,6 +12,7 @@ class RoomObjectRow implements IDBVORow
 	public var artworkId:Int;
 	public var artIndex:Int;
 	public var description:String;
+	public var pickupSoundId:Int;
 	public var id(get,set):Int;
 	var _id:Int;
 		
@@ -20,7 +21,7 @@ class RoomObjectRow implements IDBVORow
 		_dbvos = dbvos;
 	}
 		
-	public function init(_id:Int, _name:String, _artworkId:Int, _artIndex:Int, _description:String):RoomObjectRow
+	public function init(_id:Int, _name:String, _artworkId:Int, _artIndex:Int, _description:String, _pickupSoundId:Int):RoomObjectRow
 	{
 		// code generated list of params
 		id = _id;
@@ -28,6 +29,7 @@ class RoomObjectRow implements IDBVORow
 		artworkId = _artworkId;
 		artIndex = _artIndex;
 		description = _description;
+		pickupSoundId = _pickupSoundId;
 		
 		return this;
 	}
@@ -66,6 +68,21 @@ class RoomObjectRow implements IDBVORow
 	{
 		// overrides cached value
 		return _artwork = value;
+	}
+		
+	public var pickupSound(get,set):AudioRow; // property declaration
+	var _pickupSound:AudioRow; // cached lookup value
+	function get_pickupSound():AudioRow
+	{
+		if(_pickupSound == null)
+			_pickupSound = cast dbvos.retrieve(pickupSoundId, "AudioRow");
+		return _pickupSound;
+	}
+		
+	function set_pickupSound(value:AudioRow):AudioRow
+	{
+		// overrides cached value
+		return _pickupSound = value;
 	}
 		
 }

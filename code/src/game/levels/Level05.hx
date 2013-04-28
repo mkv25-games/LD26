@@ -19,6 +19,8 @@ class Level05 extends BaseLevel implements ILevel
 		yobj = addRoomObject(yobj, RoomObjectEnum.CARD, 0, -50);
 		zobj = addRoomObject(zobj, RoomObjectEnum.PLUG, 150, 0);
 		
+		zobj.moveable = false;
+		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(4);
 			

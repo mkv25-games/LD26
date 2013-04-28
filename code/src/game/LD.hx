@@ -1,6 +1,9 @@
 package;
 import com.haxepunk.Engine;
+import com.haxepunk.HXP;
+import com.haxepunk.Sfx;
 import levels.LevelList;
+import net.mkv25.ld26.dbvos.AudioRow;
 import net.mkv25.ld26.dbvos.RoomObjectRow;
 import world.MinimalistWorld;
 import net.mkv25.ld26.dbvos.DBVOsModel;
@@ -56,5 +59,13 @@ class LD
 	public static function getRoomObject(id:Int):RoomObjectRow
 	{
 		return data.ROOM_OBJECT.getRowCast(id);
+	}
+	
+	public static function playSoundEffect(id:Int):AudioRow
+	{
+		var audio = data.AUDIO.getRowCast(id);
+		var sound = new Sfx(audio.path);
+		sound.play();
+		return audio;
 	}
 }

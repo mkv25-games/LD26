@@ -9,6 +9,7 @@ import motion.Actuate;
 import motion.easing.Quad;
 import motion.easing.Sine;
 import net.mkv25.ld26.dbvos.RoomObjectRow;
+import net.mkv25.ld26.enums.AudioEnum;
 
 class RoomObjectEntity extends Entity 
 {
@@ -25,7 +26,7 @@ class RoomObjectEntity extends Entity
 		super();
 		
 		roomObject = LD.getRoomObject(id);
-		moveable = false;
+		moveable = true;
 		switchable = false;
 		on = false;
 		beingCarried = false;
@@ -73,6 +74,7 @@ class RoomObjectEntity extends Entity
 		if (LD.world.player.tryPickUp(this))
 		{
 			spritemap.angle = 25;
+			LD.playSoundEffect(roomObject.pickupSoundId);
 		}
 	}
 	
@@ -82,8 +84,15 @@ class RoomObjectEntity extends Entity
 		layer = cast 1000 - y;
 		spritemap.angle = 0;
 		Actuate.tween(spritemap, 0.3, { angle: 360 } ).ease(Sine.easeInOut);
-		Actuate.tween(this, 0.3, { y: y - 110 } ).ease(Sine.easeInOut).reverse();
+		Actuate.tween(this, 0.3, { y: y - 110 } ).ease(Sine.easeInOut).reverse().onComplete(onDropped);
 		Actuate.tween(this, 0.3, { x: x + (100 * LD.world.player.direction * -1) } ).ease(Quad.easeOut);
+		
+		LD.playSoundEffect(AudioEnum.BOUNCE);
+	}
+	
+	function onDropped()
+	{
+		LD.playSoundEffect(AudioEnum.THUCKLE);
 	}
 	
 	public function toggleSwitch()
