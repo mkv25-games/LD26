@@ -8,6 +8,7 @@ import com.haxepunk.utils.Key;
 import motion.Actuate;
 import motion.easing.Sine;
 import net.mkv25.ld26.dbvos.RoomObjectRow;
+import net.mkv25.ld26.enums.AudioEnum;
 import net.mkv25.ld26.enums.RoomObjectEnum;
 import world.MinimalistWorld;
 
@@ -44,8 +45,9 @@ class Level01 extends BaseLevel implements ILevel
 		
 		if (_nextLevel == null)
 			_nextLevel = LD.levels.getLevel(2);
-			
-		LD.world.setRoomText("INSTRUCTION ROOM");
+		
+		if(!roomComplete)
+			LD.world.setRoomText("INSTRUCTION ROOM");
 	}
 	
 	function onSpaceToggled()
@@ -86,6 +88,7 @@ class Level01 extends BaseLevel implements ILevel
 				if (spacePressed)
 				{
 					LD.world.setRoomText("ROOM COMPLETE!");
+					LD.playSoundEffect(AudioEnum.PICKUP_COIN);
 					roomComplete = true;
 				}
 				else

@@ -35,7 +35,6 @@ class BaseLevel
 			entity.x = x;
 			entity.y = y;
 			entity.layer = 1000 - y;
-			world.add(entity);
 			roomObjects.push(entity);
 			return entity;
 		}

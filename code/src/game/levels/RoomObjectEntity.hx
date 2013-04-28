@@ -42,7 +42,7 @@ class RoomObjectEntity extends Entity
 		centerOrigin();
 		
 		addGraphic(spritemap);
-		setHitbox(spritemap.width, spritemap.height, cast spritemap.originX, cast spritemap.originY);
+		setHitbox(50, 50, 25, 25);
 		
 		type = "room_object";
 	}
@@ -91,14 +91,14 @@ class RoomObjectEntity extends Entity
 		Actuate.tween(this, 0.3, { x: x + (100 * LD.world.player.direction * -1) } ).ease(Quad.easeOut);
 		
 		LD.playSoundEffect(AudioEnum.BOUNCE);
-		
-		if(onDroppedEvent != null)
-			onDroppedEvent();
 	}
 	
 	function onDropped()
 	{
 		LD.playSoundEffect(AudioEnum.THUCKLE);
+		
+		if(onDroppedEvent != null)
+			onDroppedEvent();
 	}
 	
 	public function toggleSwitch()

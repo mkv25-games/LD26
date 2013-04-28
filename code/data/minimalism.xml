@@ -100,7 +100,7 @@
         <name>Waste Paper 1</name>
         <artwork>3</artwork>
         <artIndex>0</artIndex>
-        <description>Scrap paper on the ground</description>
+        <description>Scrap paper on the ground, scrawled with incomprensible notes</description>
         <pickupSound>13</pickupSound>
       </Row>
       <Row>
@@ -108,7 +108,7 @@
         <name>Waste Paper 2</name>
         <artwork>3</artwork>
         <artIndex>1</artIndex>
-        <description>More of this scrap paper, wasted ideas</description>
+        <description>More of this scrap paper, covered in tears and coffee</description>
         <pickupSound>14</pickupSound>
       </Row>
       <Row>

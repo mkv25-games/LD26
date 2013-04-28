@@ -25,8 +25,8 @@ class RoomObjectTable implements IDBVOTable
 
 		// code generated list of all rows
 		var row1:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(1, "No object", 0, -1, "", -1));
-		var row2:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(2, "Waste Paper 1", 3, 0, "Scrap paper on the ground", 13));
-		var row3:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(3, "Waste Paper 2", 3, 1, "More of this scrap paper, wasted ideas", 14));
+		var row2:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(2, "Waste Paper 1", 3, 0, "Scrap paper on the ground, scrawled with incomprensible notes", 13));
+		var row3:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(3, "Waste Paper 2", 3, 1, "More of this scrap paper, covered in tears and coffee", 14));
 		var row4:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(4, "Left Arrow", 3, 2, "Stroll to the left", 10));
 		var row5:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(5, "Right Arrow", 3, 3, "Stroll to the right", 10));
 		var row6:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(6, "Space Bar", 3, 4, "Pick and push and flick and drop and things", 0));

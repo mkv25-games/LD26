@@ -61,7 +61,7 @@ class MinimalistWorld extends Scene
 		addGraphic(messageText);
 		
 		var textOptions2 = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 24, color: 0xBAA7A7, resizable: false, wordWrap: true };
-		roomText = new Text("BEGIN", -250, -290, 500, 60, textOptions2);
+		roomText = new Text("BEGIN", -250, -285, 500, 60, textOptions2);
 		addGraphic(roomText);
 		
 		changeController(fadeInController);
