@@ -29,20 +29,24 @@ class PlayerEntity extends Entity
 		spritemap.add("sit", [16, 17, 18, 19], 12, false);
 		spritemap.add("stand", [19, 18, 17, 16, 7], 12, false);
 		spritemap.play("idle");
-		spritemap.y = - spritemap.height;
+		spritemap.y = - spritemap.height + 30;
 		spritemap.x = - spritemap.width / 2;
 		
 		velocity = new Point();
 		acceleration = new Point();
 		sitDown = false;
+		y = -20;
 		
 		addGraphic(spritemap);
 	}
 	
-	override public function update():Void 
+	public function idle()
 	{
-		super.update();
-		
+		spritemap.play("idle");
+	}
+	
+	public function playerUpdate():Void 
+	{
 		var gravity = 1.0;
 		velocity.x = velocity.x * 0.5;
 		velocity.y = velocity.y * 0.5;
@@ -51,6 +55,7 @@ class PlayerEntity extends Entity
 		
 		acceleration.x = 0.0;
 		acceleration.y = HXP.clamp(acceleration.y + 5, -100, 10);
+		layer = cast 1000 - y;
 		
 		if (Input.check(Key.DOWN))
 		{
@@ -107,8 +112,7 @@ class PlayerEntity extends Entity
 		}
 		
 		x = HXP.clamp(x + velocity.x, -400, 400);
-		y = HXP.clamp(y + velocity.y, -400, 0);
-
+		y = -20;
 	}
 	
 }

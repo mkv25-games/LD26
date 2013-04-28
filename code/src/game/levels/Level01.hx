@@ -15,9 +15,11 @@ class Level01 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		tv = addRoomObject(RoomObjectEnum.TV, -200, -50);
-		table = addRoomObject(RoomObjectEnum.TABLE, 100, -50);
+		tv = addRoomObject(RoomObjectEnum.TV, -200, 5);
+		table = addRoomObject(RoomObjectEnum.TABLE, 100, -60);
 		lamp = addRoomObject(RoomObjectEnum.LAMP, 250, -50);
 		
+		if (_nextLevel == null)
+			_nextLevel = new Level01();
 	}
 }

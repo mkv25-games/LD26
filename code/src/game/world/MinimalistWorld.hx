@@ -1,17 +1,34 @@
 package world;
 
+import api.IController;
+import api.ILevel;
 import com.haxepunk.graphics.Stamp;
 import com.haxepunk.HXP;
 import com.haxepunk.Scene;
+import controllers.FadeInController;
+import controllers.FadeOutController;
+import controllers.LevelController;
 import levels.Level01;
 import net.mkv25.ld26.enums.ArtworkEnum;
 import player.PlayerEntity;
 
 class MinimalistWorld extends Scene
 {
+	public var player:PlayerEntity;
+	public var currentLevel:ILevel;
+	public var controller:IController;
+	
+	public var defaultController:IController;
+	public var fadeInController:FadeInController;
+	public var fadeOutController:FadeOutController;
+	
 	public function new() 
 	{
 		super();
+		
+		defaultController = new LevelController();
+		fadeInController = new FadeInController();
+		fadeOutController = new FadeOutController();
 	}
 	
 	override public function begin()
@@ -20,11 +37,51 @@ class MinimalistWorld extends Scene
 		camera.y = -HXP.stage.height + 100;
 		
 		var roomArtwork = LD.data.ARTWORK.getRowCast(ArtworkEnum.ROOM);
-		addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + 100));
+		var room = addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + 100));
+		room.layer = 5000;
 		
-		var level01 = new Level01();
-		level01.start(this);
+		changeLevel(new Level01());
 		
-		add(new PlayerEntity());
+		player = cast add(new PlayerEntity());
+		changeController(fadeInController);
+	}
+	
+	public function changeController(newController:IController)
+	{
+		if (newController == controller)
+			return;
+			
+		if (controller != null)
+			controller.exit();
+		
+		controller = newController;
+		
+		if(controller != null)
+			controller.enter();
+	}
+	
+	public function resetController()
+	{
+		changeController(defaultController);
+	}
+	
+	public function changeLevel(level:ILevel)
+	{
+		if (currentLevel == level)
+			return;
+		
+		currentLevel = level;
+		changeController(fadeInController);
+		
+		if(currentLevel != null)
+			currentLevel.start(this);
+	}
+	
+	override public function update() 
+	{
+		super.update();
+		
+		if (controller != null)
+			controller.update();
 	}
 }

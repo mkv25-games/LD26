@@ -5,4 +5,6 @@ interface ILevel
 {
 	function start(world:Scene):Void;
 	function exit():Void;
+	function nextLevel():Void;
+	function previousLevel():Void;
 }

@@ -13,6 +13,7 @@
 
 	<haxelib name="nme" />
 	<haxelib name="HaxePunk" />
+	<haxelib name="actuate" />
 
 	<assets path="assets/graphics" rename="gfx" include="*.png|*.jpg" />
 	<assets path="assets/audio" rename="sfx" include="*.mp3" if="flash" />

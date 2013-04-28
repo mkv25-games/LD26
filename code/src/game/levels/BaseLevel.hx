@@ -1,5 +1,6 @@
 package levels;
 
+import api.ILevel;
 import com.haxepunk.Entity;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.graphics.Stamp;
@@ -9,6 +10,9 @@ class BaseLevel
 {
 	var world:Scene;
 	var roomObjects:List<RoomObjectEntity>;
+	
+	var _nextLevel:ILevel;
+	var _previousLevel:ILevel;
 	
 	public function new() 
 	{
@@ -20,12 +24,23 @@ class BaseLevel
 		var entity = new RoomObjectEntity(id);
 		entity.x = x;
 		entity.y = y;
+		entity.layer = 1000 - y;
 		world.add(entity);
 		roomObjects.push(entity);
 		return entity;
 	}
 	
-	public function exit()
+	public function nextLevel():Void
+	{
+		LD.world.changeLevel(_nextLevel);
+	}
+	
+	public function previousLevel():Void
+	{
+		LD.world.changeLevel(_previousLevel);
+	}
+	
+	public function exit():Void
 	{
 		for (item in roomObjects)
 		{
