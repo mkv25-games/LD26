@@ -13,7 +13,7 @@ class PlayerEntity extends Entity
 	var spritemap:Spritemap;
 	var velocity:Point;
 	var acceleration:Point;
-	var sitDown:Bool;
+	var pickUp:Bool;
 	var standingUp:Bool;
 	
 	public function new() 
@@ -29,12 +29,12 @@ class PlayerEntity extends Entity
 		spritemap.add("sit", [16, 17, 18, 19], 12, false);
 		spritemap.add("stand", [19, 18, 17, 16, 7], 12, false);
 		spritemap.play("idle");
-		spritemap.y = - spritemap.height + 30;
+		spritemap.y = - spritemap.height + 50;
 		spritemap.x = - spritemap.width / 2;
 		
 		velocity = new Point();
 		acceleration = new Point();
-		sitDown = false;
+		pickUp = false;
 		y = -20;
 		
 		addGraphic(spritemap);
@@ -47,26 +47,25 @@ class PlayerEntity extends Entity
 	
 	public function playerUpdate():Void 
 	{
-		var gravity = 1.0;
 		velocity.x = velocity.x * 0.5;
 		velocity.y = velocity.y * 0.5;
 		if (Math.abs(velocity.x) < 0.1) velocity.x = 0;
 		if (Math.abs(velocity.y) < 0.1) velocity.y = 0;
 		
 		acceleration.x = 0.0;
-		acceleration.y = HXP.clamp(acceleration.y + 5, -100, 10);
+		acceleration.y = 0.0;
 		layer = cast 1000 - y;
 		
-		if (Input.check(Key.DOWN))
+		if (Input.check(Key.UP))
 		{
-			sitDown = true;
+			acceleration.y = -1.5;
 		}
-		else if (sitDown)
+		else if (Input.check(Key.DOWN))
 		{
-			standingUp = true;
-			sitDown = false;
+			acceleration.y = 1.5;
 		}
-		else if (Input.check(Key.LEFT))
+		
+		if (Input.check(Key.LEFT))
 		{
 			acceleration.x = -3;
 		}
@@ -75,15 +74,17 @@ class PlayerEntity extends Entity
 			acceleration.x = 3;
 		}
 		
-		if (!standingUp && !sitDown)
+		if (!standingUp && !pickUp)
 		{
 			velocity.x = HXP.clamp(velocity.x + acceleration.x, -10.0, 10.0);
-			velocity.y = HXP.clamp(velocity.y + acceleration.y + gravity, -100, 100);
+			velocity.y = HXP.clamp(velocity.y + acceleration.y, -10.0, 10.0);
 		}
 		
-		if (sitDown)
+		if (pickUp)
 		{
 			spritemap.play("sit");
+			if (spritemap.frame == 19)
+				standingUp = true;
 		}
 		else if (standingUp)
 		{
@@ -93,17 +94,20 @@ class PlayerEntity extends Entity
 		}
 		else
 		{
-			if (velocity.x > 0)
+			if (velocity.length > 0)
 			{
 				spritemap.play("walk");
-				spritemap.scaleX = 1.0;
-				spritemap.x = - spritemap.width / 2;
-			}
-			else if (velocity.x < 0)
-			{
-				spritemap.play("walk");
-				spritemap.scaleX = -1.0;
-				spritemap.x = spritemap.width / 2;
+			
+				if (velocity.x > 0)
+				{
+					spritemap.scaleX = 1.0;
+					spritemap.x = - spritemap.width / 2;
+				}
+				else if (velocity.x < 0)
+				{
+					spritemap.scaleX = -1.0;
+					spritemap.x = spritemap.width / 2;
+				}
 			}
 			else
 			{
@@ -112,7 +116,7 @@ class PlayerEntity extends Entity
 		}
 		
 		x = HXP.clamp(x + velocity.x, -400, 400);
-		y = -20;
+		y = HXP.clamp(y + velocity.y, -60, -20);
 	}
 	
 }

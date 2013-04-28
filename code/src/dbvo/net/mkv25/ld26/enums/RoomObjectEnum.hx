@@ -19,9 +19,11 @@ class RoomObjectEnum implements IDBVOEnum
 	inline public static var LAMP:Int = 12;
 	inline public static var CARD:Int = 13;
 	inline public static var PLUG:Int = 14;
-	inline public static var SWITCH_OFF:Int = 15;
-	inline public static var SWITCH_ON:Int = 16;
+	inline public static var LIGHT_SWITCH_ON:Int = 15;
+	inline public static var LIGHT_SWITCH_OFF:Int = 16;
 	inline public static var TABLE:Int = 17;
 	inline public static var TELEPHONE:Int = 19;
 	inline public static var PLANT:Int = 20;
+	inline public static var DOWN_ARROW:Int = 21;
+	inline public static var UP_ARROW:Int = 23;
 }

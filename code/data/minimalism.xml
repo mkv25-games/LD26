@@ -57,6 +57,178 @@
         <width>800</width>
         <height>400</height>
       </Row>
+      <Row>
+        <id>3</id>
+        <name>Stuff</name>
+        <path>gfx/stuff.png</path>
+        <width>64</width>
+        <height>64</height>
+      </Row>
+    </Table>
+    <Table>
+      <Schema>
+        <Name>Room Object</Name>
+        <Field>
+          <Name>artwork</Name>
+          <Type>lookup</Type>
+          <Lookup>Artwork</Lookup>
+        </Field>
+        <Field>
+          <Name>artIndex</Name>
+          <Type>int</Type>
+        </Field>
+        <Field>
+          <Name>description</Name>
+          <Type>string</Type>
+        </Field>
+      </Schema>
+      <Row>
+        <id>1</id>
+        <name>No object</name>
+        <artwork>0</artwork>
+        <artIndex>-1</artIndex>
+        <description />
+      </Row>
+      <Row>
+        <id>2</id>
+        <name>Waste Paper 1</name>
+        <artwork>3</artwork>
+        <artIndex>0</artIndex>
+        <description>Scrap paper on the ground</description>
+      </Row>
+      <Row>
+        <id>3</id>
+        <name>Waste Paper 2</name>
+        <artwork>3</artwork>
+        <artIndex>1</artIndex>
+        <description>More of this scrap paper, wasted ideas</description>
+      </Row>
+      <Row>
+        <id>4</id>
+        <name>Left Arrow</name>
+        <artwork>3</artwork>
+        <artIndex>2</artIndex>
+        <description>Stroll to the left</description>
+      </Row>
+      <Row>
+        <id>5</id>
+        <name>Right Arrow</name>
+        <artwork>3</artwork>
+        <artIndex>3</artIndex>
+        <description>Stroll to the right</description>
+      </Row>
+      <Row>
+        <id>6</id>
+        <name>Space Bar</name>
+        <artwork>3</artwork>
+        <artIndex>4</artIndex>
+        <description>Pick and push and flick and drop and things</description>
+      </Row>
+      <Row>
+        <id>7</id>
+        <name>Waste Basket</name>
+        <artwork>3</artwork>
+        <artIndex>5</artIndex>
+        <description>One of those waste paper basket things</description>
+      </Row>
+      <Row>
+        <id>8</id>
+        <name>TV</name>
+        <artwork>3</artwork>
+        <artIndex>6</artIndex>
+        <description>One of those old school televisions</description>
+      </Row>
+      <Row>
+        <id>9</id>
+        <name>Star</name>
+        <artwork>3</artwork>
+        <artIndex>7</artIndex>
+        <description>A bright shining star</description>
+      </Row>
+      <Row>
+        <id>10</id>
+        <name>Bar</name>
+        <artwork>3</artwork>
+        <artIndex>8</artIndex>
+        <description>A dull and uninspiring block</description>
+      </Row>
+      <Row>
+        <id>11</id>
+        <name>Box</name>
+        <artwork>3</artwork>
+        <artIndex>9</artIndex>
+        <description>Its a box</description>
+      </Row>
+      <Row>
+        <id>12</id>
+        <name>Lamp</name>
+        <artwork>3</artwork>
+        <artIndex>10</artIndex>
+        <description>A lampshade</description>
+      </Row>
+      <Row>
+        <id>13</id>
+        <name>Card</name>
+        <artwork>3</artwork>
+        <artIndex>11</artIndex>
+        <description>A pass card</description>
+      </Row>
+      <Row>
+        <id>14</id>
+        <name>Plug</name>
+        <artwork>3</artwork>
+        <artIndex>12</artIndex>
+        <description>Futuristic plug socket</description>
+      </Row>
+      <Row>
+        <id>15</id>
+        <name>Light Switch On</name>
+        <artwork>3</artwork>
+        <artIndex>13</artIndex>
+        <description>Turn the lights on</description>
+      </Row>
+      <Row>
+        <id>16</id>
+        <name>Light Switch Off</name>
+        <artwork>3</artwork>
+        <artIndex>14</artIndex>
+        <description>Turn the lights off</description>
+      </Row>
+      <Row>
+        <id>17</id>
+        <name>Table</name>
+        <artwork>3</artwork>
+        <artIndex>15</artIndex>
+        <description>A small table</description>
+      </Row>
+      <Row>
+        <id>19</id>
+        <name>Telephone</name>
+        <artwork>3</artwork>
+        <artIndex>16</artIndex>
+        <description>Ring ring... ring ring? Sure is lonely in here</description>
+      </Row>
+      <Row>
+        <id>20</id>
+        <name>Plant</name>
+        <artwork>3</artwork>
+        <artIndex>17</artIndex>
+        <description>Chlorophyll in action</description>
+      </Row>
+      <Row>
+        <id>21</id>
+        <name>Down Arrow</name>
+        <artwork>3</artwork>
+        <artIndex>18</artIndex>
+        <description>Move a little closer</description>
+      </Row>
+      <Row>
+        <id>23</id>
+        <name>Up Arrow</name>
+        <artwork>3</artwork>
+        <artIndex>19</artIndex>
+        <description>Move a little further</description>
+      </Row>
     </Table>
   </Tables>
 </Data>

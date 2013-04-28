@@ -32,12 +32,28 @@ class BaseLevel
 	
 	public function nextLevel():Void
 	{
-		LD.world.changeLevel(_nextLevel);
+		if(_nextLevel != null)
+			LD.world.changeLevel(_nextLevel);
 	}
 	
 	public function previousLevel():Void
 	{
-		LD.world.changeLevel(_previousLevel);
+		if(_previousLevel != null)
+			LD.world.changeLevel(_previousLevel);
+	}
+	
+	public function nextAvailable():Bool
+	{
+		if (_nextLevel != null)
+			return true;
+		return false;
+	}
+	
+	public function previousAvailable():Bool
+	{
+		if (_previousLevel != null)
+			return true;
+		return false;
 	}
 	
 	public function exit():Void

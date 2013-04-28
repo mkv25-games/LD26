@@ -1,5 +1,6 @@
 package;
 import com.haxepunk.Engine;
+import levels.LevelList;
 import net.mkv25.ld26.dbvos.RoomObjectRow;
 import world.MinimalistWorld;
 import net.mkv25.ld26.dbvos.DBVOsModel;
@@ -9,6 +10,7 @@ class LD
 	public static var engine:Engine;
 	public static var data:DBVOsModel;
 	public static var world:MinimalistWorld;
+	public static var levels:LevelList;
 	public static var sineCurve:Array<Float>;
 	
 	public static function setup(engine:Engine):Void
@@ -17,6 +19,7 @@ class LD
 		LD.measure(function():Void { LD.data = new DBVOsModel(); }, "Setup DBVO Data Model" );
 		LD.measure(function():Void { LD.world = new MinimalistWorld(); }, "Setup World" );
 		LD.measure(function():Void { generateSineCurve(); }, "Setup Sine Curve" );
+		LD.measure(function():Void { LD.levels = new LevelList(); }, "Setup Levels" );
 	}
 	
 	static function generateSineCurve():Void

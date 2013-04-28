@@ -8,18 +8,18 @@ import world.MinimalistWorld;
 
 class Level01 extends BaseLevel implements ILevel
 {
-	var tv:RoomObjectEntity;
-	var table:RoomObjectEntity;
-	var lamp:RoomObjectEntity;
+	var left:RoomObjectEntity;
+	var space:RoomObjectEntity;
+	var right:RoomObjectEntity;
 	
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		tv = addRoomObject(RoomObjectEnum.TV, -200, 5);
-		table = addRoomObject(RoomObjectEnum.TABLE, 100, -60);
-		lamp = addRoomObject(RoomObjectEnum.LAMP, 250, -50);
-		
+		left = addRoomObject(RoomObjectEnum.LEFT_ARROW, -200, -30);
+		space = addRoomObject(RoomObjectEnum.SPACE_BAR, 0, -80);
+		right = addRoomObject(RoomObjectEnum.RIGHT_ARROW, 200, -30);
+
 		if (_nextLevel == null)
-			_nextLevel = new Level01();
+			_nextLevel = LD.levels.getLevel(2);
 	}
 }

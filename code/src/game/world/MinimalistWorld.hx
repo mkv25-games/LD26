@@ -9,6 +9,7 @@ import controllers.FadeInController;
 import controllers.FadeOutController;
 import controllers.LevelController;
 import levels.Level01;
+import net.mkv25.ld26.dbvos.RoomObjectRow;
 import net.mkv25.ld26.enums.ArtworkEnum;
 import player.PlayerEntity;
 
@@ -40,10 +41,17 @@ class MinimalistWorld extends Scene
 		var room = addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + 100));
 		room.layer = 5000;
 		
-		changeLevel(new Level01());
+		changeLevel(LD.levels.getLevel(1));
 		
 		player = cast add(new PlayerEntity());
+		player.x = -60;
 		changeController(fadeInController);
+		
+		for (item in LD.data.ROOM_OBJECT.rowList)
+		{
+			var itemCast:RoomObjectRow = cast item;
+			trace(itemCast.name + ", " + itemCast.artwork.path);
+		}
 	}
 	
 	public function changeController(newController:IController)
@@ -69,6 +77,9 @@ class MinimalistWorld extends Scene
 	{
 		if (currentLevel == level)
 			return;
+			
+		if (currentLevel != null)
+			currentLevel.exit();
 		
 		currentLevel = level;
 		changeController(fadeInController);

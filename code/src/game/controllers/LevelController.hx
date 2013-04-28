@@ -23,19 +23,19 @@ class LevelController implements IController
 	
 	public function update():Void
 	{
-		if (LD.world.player.x >= 400)
+		if (LD.world.player.x >= 400 && LD.world.currentLevel.nextAvailable())
 		{
 			LD.world.player.x = -390;
 			LD.world.player.idle();
 			LD.world.changeController(LD.world.fadeOutController);
 			LD.world.currentLevel.nextLevel();
 		}
-		else if (LD.world.player.x <= -400)
+		else if (LD.world.player.x <= -400 && LD.world.currentLevel.previousAvailable())
 		{
 			LD.world.player.x = 390;
 			LD.world.player.idle();
 			LD.world.changeController(LD.world.fadeOutController);
-			LD.world.currentLevel.nextLevel();
+			LD.world.currentLevel.previousLevel();
 		}
 		else
 		{

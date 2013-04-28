@@ -7,4 +7,6 @@ interface ILevel
 	function exit():Void;
 	function nextLevel():Void;
 	function previousLevel():Void;
+	function nextAvailable():Bool;
+	function previousAvailable():Bool;
 }
