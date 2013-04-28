@@ -11,16 +11,9 @@ class Level10 extends BaseLevel implements ILevel
 {
 	public var finalBoss:FinalBossEntity;
 	
-	var xobj:RoomObjectEntity;
-	var yobj:RoomObjectEntity;
-	var zobj:RoomObjectEntity;
-	
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		xobj = addRoomObject(xobj, RoomObjectEnum.TABLE, -150, 0);
-		yobj = addRoomObject(yobj, RoomObjectEnum.LAMP_OFF, 0, -50);
-		zobj = addRoomObject(zobj, RoomObjectEnum.TABLE, 150, 0);
 		
 		if (finalBoss == null)
 			finalBoss = new FinalBossEntity();
@@ -46,17 +39,21 @@ class Level10 extends BaseLevel implements ILevel
 		var i = 1;
 		for (level in list)
 		{
-			if (level.roomComplete == false)
+			if (i != 10)
 			{
-				LD.world.setRoomText("GO BACK, ROOM " + i + " IS INCOMPLETE.");
-				cheesecake = false;
-				break;
+				if (level.roomComplete == false)
+				{
+					LD.world.setRoomText("GO BACK, ROOM " + i + " IS INCOMPLETE.");
+					cheesecake = false;
+					break;
+				}
 			}
 			i++;
 		}
 		
 		if (cheesecake)
 		{
+			LD.world.setRoomText("YOU HAVE BESTED ME! YOU MAY LEAVE NOW");
 			roomComplete = true;
 			LD.world.gameComplete = true;
 		}

@@ -33,7 +33,7 @@ class Level09 extends BaseLevel implements ILevel
 			addRoomObject(null, RoomObjectEnum.TABLE, 200, -70);
 			
 			addRoomObject(null, RoomObjectEnum.STAR, -200, -110);
-			addRoomObject(null, RoomObjectEnum.TELEPHONE, -110, -110);
+			addRoomObject(null, RoomObjectEnum.TELEPHONE, -100, -110);
 			addRoomObject(null, RoomObjectEnum.PASS_CARD, 0, -110);
 			addRoomObject(null, RoomObjectEnum.LAMP_ON, 100, -110);
 			addRoomObject(null, RoomObjectEnum.TV, 200, -110);

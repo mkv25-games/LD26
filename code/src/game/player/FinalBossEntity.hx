@@ -25,7 +25,8 @@ class FinalBossEntity extends Entity
 		bounceTime = bounceTime + HXP.elapsed * HXP.frameRate * 0.6;
 		if (bounceTime > LD.sineCurve.length)
 			bounceTime = 0;
-		y = -100 - 20 * LD.sineCurve[cast bounceTime % LD.sineCurve.length];
+		y = - 30 * LD.sineCurve[cast bounceTime % LD.sineCurve.length];
+		
 		layer = cast 1000 - y;
 	}
 	
