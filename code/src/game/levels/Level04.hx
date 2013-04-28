@@ -15,9 +15,9 @@ class Level04 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		xobj = addRoomObject(RoomObjectEnum.STAR, -150, 0);
-		yobj = addRoomObject(RoomObjectEnum.BAR, 0, -50);
-		zobj = addRoomObject(RoomObjectEnum.BOX, 150, 0);
+		xobj = addRoomObject(xobj, RoomObjectEnum.STAR, -150, 0);
+		yobj = addRoomObject(yobj, RoomObjectEnum.BAR, 0, -50);
+		zobj = addRoomObject(zobj, RoomObjectEnum.BOX, 150, 0);
 		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(3);

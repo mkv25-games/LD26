@@ -9,7 +9,7 @@ import com.haxepunk.Scene;
 class BaseLevel 
 {
 	var world:Scene;
-	var roomObjects:List<RoomObjectEntity>;
+	public var roomObjects:List<RoomObjectEntity>;
 	
 	var _nextLevel:ILevel;
 	var _previousLevel:ILevel;
@@ -19,15 +19,20 @@ class BaseLevel
 		roomObjects = new List<RoomObjectEntity>();
 	}
 	
-	public function addRoomObject(id:Int, x:Int, y:Int):RoomObjectEntity
+	public function addRoomObject(existing:RoomObjectEntity, id:Int, x:Int, y:Int):RoomObjectEntity
 	{
-		var entity = new RoomObjectEntity(id);
-		entity.x = x;
-		entity.y = y;
-		entity.layer = 1000 - y;
-		world.add(entity);
-		roomObjects.push(entity);
-		return entity;
+		if (existing == null)
+		{
+			var entity = new RoomObjectEntity(id);
+			entity.x = x;
+			entity.y = y;
+			entity.layer = 1000 - y;
+			world.add(entity);
+			roomObjects.push(entity);
+			return entity;
+		}
+		
+		return existing;
 	}
 	
 	public function nextLevel():Void

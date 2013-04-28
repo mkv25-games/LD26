@@ -15,9 +15,9 @@ class Level02 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		wp1 = addRoomObject(RoomObjectEnum.WASTE_PAPER_1, -200, 5);
-		wp2 = addRoomObject(RoomObjectEnum.WASTE_PAPER_2, 100, -60);
-		wpb = addRoomObject(RoomObjectEnum.WASTE_BASKET, 150, -50);
+		wp1 = addRoomObject(wp1, RoomObjectEnum.WASTE_PAPER_1, -200, 5);
+		wp2 = addRoomObject(wp2, RoomObjectEnum.WASTE_PAPER_2, 100, -60);
+		wpb = addRoomObject(wpb, RoomObjectEnum.WASTE_BASKET, 150, -50);
 		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(1);

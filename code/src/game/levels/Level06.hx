@@ -15,9 +15,9 @@ class Level06 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		xobj = addRoomObject(RoomObjectEnum.LIGHT_SWITCH_OFF, -150, -50);
-		yobj = addRoomObject(RoomObjectEnum.TABLE, 0, 0);
-		zobj = addRoomObject(RoomObjectEnum.TELEPHONE, 150, -50);
+		xobj = addRoomObject(xobj, RoomObjectEnum.LIGHT_SWITCH_OFF, -150, -50);
+		yobj = addRoomObject(yobj, RoomObjectEnum.TABLE, 0, 0);
+		zobj = addRoomObject(zobj, RoomObjectEnum.TELEPHONE, 150, -50);
 		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(5);

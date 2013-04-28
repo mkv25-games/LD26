@@ -16,8 +16,8 @@ class PlayerEntity extends Entity
 	var acceleration:Point;
 	var pickUp:Bool;
 	var standingUp:Bool;
-	var carryObject:RoomObjectEntity;
 	
+	public var carryObject:RoomObjectEntity;
 	public var direction:Int;
 	
 	public function new() 
@@ -148,11 +148,11 @@ class PlayerEntity extends Entity
 		}
 		
 		x = HXP.clamp(x + velocity.x, -400, 400);
-		y = HXP.clamp(y + velocity.y, -60, 0);
+		y = HXP.clamp(y + velocity.y, -50, 0);
 		
 		if (carryObject != null)
 		{
-			carryObject.x = x;
+			carryObject.x = x + (25 * direction);
 			carryObject.y = y - 50;
 			carryObject.layer = this.layer - 1;
 		}

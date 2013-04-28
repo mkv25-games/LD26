@@ -15,9 +15,9 @@ class Level01 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		left = addRoomObject(RoomObjectEnum.LEFT_ARROW, -200, -30);
-		space = addRoomObject(RoomObjectEnum.SPACE_BAR, 0, -80);
-		right = addRoomObject(RoomObjectEnum.RIGHT_ARROW, 200, -30);
+		left = addRoomObject(left, RoomObjectEnum.LEFT_ARROW, -200, -30);
+		space = addRoomObject(space, RoomObjectEnum.SPACE_BAR, 0, -80);
+		right = addRoomObject(right, RoomObjectEnum.RIGHT_ARROW, 200, -30);
 
 		left.moveable = true;
 		right.moveable = true;

@@ -1,5 +1,6 @@
 package api;
 import com.haxepunk.Scene;
+import levels.RoomObjectEntity;
 
 interface ILevel 
 {
@@ -9,4 +10,6 @@ interface ILevel
 	function previousLevel():Void;
 	function nextAvailable():Bool;
 	function previousAvailable():Bool;
+	
+	var roomObjects:List<RoomObjectEntity>;
 }

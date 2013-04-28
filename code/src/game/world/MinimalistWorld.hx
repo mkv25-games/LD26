@@ -45,11 +45,8 @@ class MinimalistWorld extends Scene
 		var room = addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + floorHeight));
 		room.layer = 5000;
 		
-		changeLevel(LD.levels.getLevel(1));
-		
 		player = cast add(new PlayerEntity());
 		player.x = -60;
-		changeController(fadeInController);
 		
 		for (item in LD.data.ROOM_OBJECT.rowList)
 		{
@@ -60,6 +57,9 @@ class MinimalistWorld extends Scene
 		var textOptions = { font: "font/futura.ttf", align:TextFormatAlign.CENTER, size: 18, color: 0x675F5F, resizable: false, wordWrap: true };
 		messageText = new Text("Welcome to the Game", -100, -250, 200, 60, textOptions);
 		addGraphic(messageText);
+		
+		changeController(fadeInController);
+		changeLevel(LD.levels.getLevel(1));
 	}
 	
 	public function changeController(newController:IController)
@@ -88,12 +88,24 @@ class MinimalistWorld extends Scene
 			
 		if (currentLevel != null)
 			currentLevel.exit();
-		
+			
+		if (currentLevel != null && player.carryObject != null)
+			currentLevel.roomObjects.remove(player.carryObject);
+			
 		currentLevel = level;
 		changeController(fadeInController);
 		
-		if(currentLevel != null)
+		if (currentLevel != null && player.carryObject != null)
+			currentLevel.roomObjects.add(player.carryObject);
+			
+		if (currentLevel != null)
+		{
 			currentLevel.start(this);
+			for (item in currentLevel.roomObjects)
+			{
+				add(item);
+			}
+		}
 	}
 	
 	override public function update() 

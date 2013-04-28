@@ -15,9 +15,9 @@ class Level07 extends BaseLevel implements ILevel
 	public function start(world:Scene):Void
 	{
 		this.world = world;
-		xobj = addRoomObject(RoomObjectEnum.PLANT, -150, 0);
-		yobj = addRoomObject(RoomObjectEnum.PLANT, 0, -50);
-		zobj = addRoomObject(RoomObjectEnum.PLANT, 150, 0);
+		xobj = addRoomObject(xobj, RoomObjectEnum.PLANT, -150, 0);
+		yobj = addRoomObject(yobj, RoomObjectEnum.PLANT, 0, -50);
+		zobj = addRoomObject(zobj, RoomObjectEnum.PLANT, 150, 0);
 		
 		if (_previousLevel == null)
 			_previousLevel = LD.levels.getLevel(6);

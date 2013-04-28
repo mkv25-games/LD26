@@ -72,7 +72,7 @@ class RoomObjectEntity extends Entity
 	{
 		if (LD.world.player.tryPickUp(this))
 		{
-			spritemap.angle = 45;
+			spritemap.angle = 25;
 		}
 	}
 	
@@ -82,8 +82,8 @@ class RoomObjectEntity extends Entity
 		layer = cast 1000 - y;
 		spritemap.angle = 0;
 		Actuate.tween(spritemap, 0.3, { angle: 360 } ).ease(Sine.easeInOut);
-		Actuate.tween(this, 0.3, { y: y - 100 } ).ease(Sine.easeInOut).reverse();
-		Actuate.tween(this, 0.3, { x: x + (50 * LD.world.player.direction * -1) } ).ease(Quad.easeOut);
+		Actuate.tween(this, 0.3, { y: y - 110 } ).ease(Sine.easeInOut).reverse();
+		Actuate.tween(this, 0.3, { x: x + (100 * LD.world.player.direction * -1) } ).ease(Quad.easeOut);
 	}
 	
 	public function toggleSwitch()
