@@ -39,13 +39,13 @@ class Level05 extends BaseLevel implements ILevel
 		if (_nextLevel == null)
 			_nextLevel = LD.levels.getLevel(6);
 			
-		if(roomComplete)
+		if(!roomComplete)
 			LD.world.setRoomText("EXTERNAL DEPFENCIES LOUNGE");
 		else
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
-	function onLampToggled()
+	function onLampToggled(entity:RoomObjectEntity)
 	{
 		if (lamp.on)
 		{
@@ -53,7 +53,7 @@ class Level05 extends BaseLevel implements ILevel
 		}
 	}
 	
-	function onPasscardDropped()
+	function onPasscardDropped(entity:RoomObjectEntity)
 	{
 		var level06 = cast LD.levels.getLevel(6);
 		if (level06 == null)
@@ -110,7 +110,7 @@ class Level05 extends BaseLevel implements ILevel
 		}
 	}
 	
-	function onPortableSwitchToggled()
+	function onPortableSwitchToggled(entity:RoomObjectEntity)
 	{
 		var items = LD.world.currentLevel.roomObjects;
 		for (item in items)

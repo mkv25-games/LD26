@@ -44,7 +44,7 @@ class Level02 extends BaseLevel implements ILevel
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
-	function onWastePaperDropped()
+	function onWastePaperDropped(entity:RoomObjectEntity)
 	{
 		if (wp1.collideWith(wpb, wp1.x, wp1.y) != null)
 		{

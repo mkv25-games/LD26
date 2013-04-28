@@ -45,7 +45,7 @@ class Level06 extends BaseLevel implements ILevel
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
-	function onStarDropped()
+	function onStarDropped(entity:RoomObjectEntity)
 	{
 		starPower++;
 		var starType:RoomObjectRow = star.toggleState;

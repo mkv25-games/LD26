@@ -64,6 +64,20 @@
         <width>64</width>
         <height>64</height>
       </Row>
+      <Row>
+        <id>4</id>
+        <name>Final Boss</name>
+        <path>gfx/final_boss.png</path>
+        <width>256</width>
+        <height>256</height>
+      </Row>
+      <Row>
+        <id>7</id>
+        <name>Title Screen</name>
+        <path>gfx/title_page.png</path>
+        <width>800</width>
+        <height>400</height>
+      </Row>
     </Table>
     <Table>
       <Schema>
@@ -277,7 +291,7 @@
         <artwork>3</artwork>
         <artIndex>22</artIndex>
         <description>Prettier then the last one</description>
-        <pickupSound>9</pickupSound>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>27</id>
@@ -285,7 +299,7 @@
         <artwork>3</artwork>
         <artIndex>23</artIndex>
         <description>Shinier then ever</description>
-        <pickupSound>9</pickupSound>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>28</id>
@@ -293,7 +307,7 @@
         <artwork>3</artwork>
         <artIndex>24</artIndex>
         <description>Glossy in the middle</description>
-        <pickupSound>9</pickupSound>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>29</id>
@@ -301,7 +315,7 @@
         <artwork>3</artwork>
         <artIndex>25</artIndex>
         <description>Brighter then a baby's bottom</description>
-        <pickupSound>9</pickupSound>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>30</id>
@@ -309,14 +323,14 @@
         <artwork>3</artwork>
         <artIndex>26</artIndex>
         <description>Blinging!</description>
-        <pickupSound>9</pickupSound>
+        <pickupSound>10</pickupSound>
       </Row>
       <Row>
         <id>31</id>
         <name>Plug On</name>
         <artwork>3</artwork>
         <artIndex>27</artIndex>
-        <description>Glowin with arcane energies</description>
+        <description>Socket glowing with arcane energies</description>
         <pickupSound>12</pickupSound>
       </Row>
       <Row>
@@ -340,7 +354,7 @@
         <name>Card Machine On</name>
         <artwork>3</artwork>
         <artIndex>30</artIndex>
-        <description>Pass card accepted</description>
+        <description>Processing! Processing! Processing!</description>
         <pickupSound>10</pickupSound>
       </Row>
     </Table>

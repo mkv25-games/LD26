@@ -2,6 +2,8 @@ package world;
 
 import api.IController;
 import api.ILevel;
+import controllers.GameIntroController;
+import controllers.GameOverController;
 import nme.text.TextFormatAlign;
 import com.haxepunk.graphics.Stamp;
 import com.haxepunk.graphics.Text;
@@ -17,6 +19,8 @@ import player.PlayerEntity;
 
 class MinimalistWorld extends Scene
 {
+	var floorHeight = 90;
+		
 	public var player:PlayerEntity;
 	public var currentLevel:ILevel;
 	public var controller:IController;
@@ -24,24 +28,32 @@ class MinimalistWorld extends Scene
 	public var roomText:Text;
 	
 	public var defaultController:IController;
+	public var gameIntroController:GameIntroController;
 	public var fadeInController:FadeInController;
 	public var fadeOutController:FadeOutController;
+	public var gameOverController:GameOverController;
 	
 	public function new() 
 	{
 		super();
 		
 		defaultController = new LevelController();
+		gameIntroController = new GameIntroController();
 		fadeInController = new FadeInController();
 		fadeOutController = new FadeOutController();
+		gameOverController = new GameOverController();
 	}
 	
 	override public function begin()
 	{
-		var floorHeight = 90;
 		camera.x = - HXP.stage.stageWidth / 2;
 		camera.y = -HXP.stage.height + floorHeight;
 		
+		changeController(gameIntroController);
+	}
+	
+	public function startFirstLevel()
+	{
 		var roomArtwork = LD.data.ARTWORK.getRowCast(ArtworkEnum.ROOM);
 		var room = addGraphic(new Stamp(roomArtwork.path, cast - roomArtwork.width / 2, cast - roomArtwork.height + floorHeight));
 		room.layer = 5000;
@@ -64,7 +76,7 @@ class MinimalistWorld extends Scene
 		roomText = new Text("BEGIN", -250, -285, 500, 60, textOptions2);
 		addGraphic(roomText);
 		
-		changeController(fadeInController);
+		
 		changeLevel(LD.levels.getLevel(1));
 	}
 	

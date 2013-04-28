@@ -47,20 +47,20 @@ class Level04 extends BaseLevel implements ILevel
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
-	function onPlug1Toggle()
+	function onPlug1Toggle(entity:RoomObjectEntity)
 	{
 		plug3.toggleSwitch(false);
 		checkRoomCompletion();
 	}
 	
-	function onPlug2Toggle()
+	function onPlug2Toggle(entity:RoomObjectEntity)
 	{
 		plug1.toggleSwitch(false);
 		plug2.toggleSwitch(false);
 		checkRoomCompletion();
 	}
 	
-	function onPlug3Toggle()
+	function onPlug3Toggle(entity:RoomObjectEntity)
 	{
 		plug2.toggleSwitch(false);
 		checkRoomCompletion();

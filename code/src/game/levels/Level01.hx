@@ -52,7 +52,7 @@ class Level01 extends BaseLevel implements ILevel
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
-	function onSpaceToggled()
+	function onSpaceToggled(entity:RoomObjectEntity)
 	{
 		if (!space.on)
 			return;

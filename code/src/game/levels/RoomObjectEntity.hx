@@ -19,9 +19,9 @@ class RoomObjectEntity extends Entity
 	public var on:Bool;
 	public var beingCarried:Bool;
 	public var toggleState:RoomObjectRow;
-	public var onToggleEvent:Void->Void;
-	public var onDropEvent:Void->Void;
-	public var onDroppedEvent:Void->Void;
+	public var onToggleEvent:RoomObjectEntity->Void;
+	public var onDropEvent:RoomObjectEntity->Void;
+	public var onDroppedEvent:RoomObjectEntity->Void;
 	
 	var spritemap:Spritemap;
 	
@@ -97,7 +97,7 @@ class RoomObjectEntity extends Entity
 		LD.playSoundEffect(AudioEnum.BOUNCE);
 		
 		if(onDropEvent != null)
-			onDropEvent();
+			onDropEvent(this);
 	}
 	
 	function onDropped()
@@ -105,7 +105,7 @@ class RoomObjectEntity extends Entity
 		LD.playSoundEffect(AudioEnum.THUCKLE);
 		
 		if(onDroppedEvent != null)
-			onDroppedEvent();
+			onDroppedEvent(this);
 	}
 	
 	public function toggleSwitch(dispatchEvent:Bool=true)
@@ -126,7 +126,7 @@ class RoomObjectEntity extends Entity
 		if (dispatchEvent)
 		{
 			if (onToggleEvent != null)
-				onToggleEvent();
+				onToggleEvent(this);
 		}
 	}
 	

@@ -47,15 +47,15 @@ class RoomObjectTable implements IDBVOTable
 		var row23:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(23, "Up Arrow", 3, 19, "Move a little further", 10));
 		var row24:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(24, "Space Bar Down", 3, 20, "Toggle and tinkle and throw your toys around", 1));
 		var row25:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(25, "Broken TV", 3, 21, "Nasty things, destroy them all", 11));
-		var row26:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(26, "Star Level 1", 3, 22, "Prettier then the last one", 9));
-		var row27:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(27, "Star Level 2", 3, 23, "Shinier then ever", 9));
-		var row28:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(28, "Star Level 3", 3, 24, "Glossy in the middle", 9));
-		var row29:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(29, "Star Level 4", 3, 25, "Brighter then a baby's bottom", 9));
-		var row30:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(30, "Star Level 5", 3, 26, "Blinging!", 9));
-		var row31:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(31, "Plug On", 3, 27, "Glowin with arcane energies", 12));
+		var row26:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(26, "Star Level 1", 3, 22, "Prettier then the last one", 10));
+		var row27:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(27, "Star Level 2", 3, 23, "Shinier then ever", 10));
+		var row28:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(28, "Star Level 3", 3, 24, "Glossy in the middle", 10));
+		var row29:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(29, "Star Level 4", 3, 25, "Brighter then a baby's bottom", 10));
+		var row30:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(30, "Star Level 5", 3, 26, "Blinging!", 10));
+		var row31:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(31, "Plug On", 3, 27, "Socket glowing with arcane energies", 12));
 		var row36:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(36, "Bar Green", 3, 28, "A bar made of green, possibly edible", 3));
 		var row38:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(38, "Lamp On", 3, 29, "Its turned on if you know what I mean", 4));
-		var row40:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(40, "Card Machine On", 3, 30, "Pass card accepted", 10));
+		var row40:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(40, "Card Machine On", 3, 30, "Processing! Processing! Processing!", 10));
 			
 		return this;
 	}

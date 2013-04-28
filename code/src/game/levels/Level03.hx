@@ -52,7 +52,7 @@ class Level03 extends BaseLevel implements ILevel
 			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
-	function onTVDropped()
+	function onTVDropped(entity:RoomObjectEntity)
 	{
 		if (tv.on)
 			return;
@@ -63,7 +63,7 @@ class Level03 extends BaseLevel implements ILevel
 		checkRoomCompletion();
 	}
 	
-	function onLampToggle()
+	function onLampToggle(entity:RoomObjectEntity)
 	{
 		if (roomContains(RoomObjectEnum.LIGHT_SWITCH_ON))
 		{
