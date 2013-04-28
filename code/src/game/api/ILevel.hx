@@ -11,6 +11,7 @@ interface ILevel
 	function previousLevel():Void;
 	function nextAvailable():Bool;
 	function previousAvailable():Bool;
+	function addRoomObject(existing:RoomObjectEntity, id:Int, x:Int, y:Int):RoomObjectEntity;
 	
 	var roomComplete:Bool;
 	var roomObjects:List<RoomObjectEntity>;

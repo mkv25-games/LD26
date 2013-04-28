@@ -75,4 +75,18 @@ class BaseLevel
 			world.remove(item);
 		}
 	}
+	
+	public function roomContains(type:Int):Bool
+	{
+		for (item in roomObjects)
+		{
+			if (item.on && item.toggleState.id == type)
+				return true;
+				
+			else if (item.roomObject.id == type)
+				return true;
+		}
+		
+		return false;
+	}
 }

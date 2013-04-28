@@ -180,7 +180,7 @@
         <name>Lamp Off</name>
         <artwork>3</artwork>
         <artIndex>10</artIndex>
-        <description>A lampshade</description>
+        <description>A lamp, without power</description>
         <pickupSound>14</pickupSound>
       </Row>
       <Row>
@@ -204,7 +204,7 @@
         <name>Light Switch On</name>
         <artwork>3</artwork>
         <artIndex>13</artIndex>
-        <description>Turn the lights on</description>
+        <description>Turn the lights off</description>
         <pickupSound>8</pickupSound>
       </Row>
       <Row>
@@ -212,7 +212,7 @@
         <name>Light Switch Off</name>
         <artwork>3</artwork>
         <artIndex>14</artIndex>
-        <description>Turn the lights off</description>
+        <description>Turn the lights on</description>
         <pickupSound>6</pickupSound>
       </Row>
       <Row>

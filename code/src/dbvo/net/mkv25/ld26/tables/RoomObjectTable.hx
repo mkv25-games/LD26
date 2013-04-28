@@ -35,11 +35,11 @@ class RoomObjectTable implements IDBVOTable
 		var row9:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(9, "Star", 3, 7, "A bright shining star", 9));
 		var row10:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(10, "Bar", 3, 8, "A dull and uninspiring block", 3));
 		var row11:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(11, "Box", 3, 9, "A box that can accept some sort of token", 13));
-		var row12:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(12, "Lamp Off", 3, 10, "A lampshade", 14));
+		var row12:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(12, "Lamp Off", 3, 10, "A lamp, without power", 14));
 		var row13:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(13, "Pass Card", 3, 11, "A pass card", 7));
 		var row14:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(14, "Plug Off", 3, 12, "Futuristic plug socket", 2));
-		var row15:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(15, "Light Switch On", 3, 13, "Turn the lights on", 8));
-		var row16:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(16, "Light Switch Off", 3, 14, "Turn the lights off", 6));
+		var row15:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(15, "Light Switch On", 3, 13, "Turn the lights off", 8));
+		var row16:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(16, "Light Switch Off", 3, 14, "Turn the lights on", 6));
 		var row17:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(17, "Table", 3, 15, "A small table", 13));
 		var row19:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(19, "Telephone", 3, 16, "Ring ring... ring ring? Sure is lonely in here", 7));
 		var row20:RoomObjectRow = cast index(new RoomObjectRow(dbvos).init(20, "Plant", 3, 17, "Chlorophyll in action", 12));

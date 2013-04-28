@@ -40,6 +40,8 @@ class Level02 extends BaseLevel implements ILevel
 			
 		if(!roomComplete)
 			LD.world.setRoomText("MESSY DESIGN ROOM");
+		else
+			LD.world.setRoomText("ROOM COMPLETE!");
 	}
 	
 	function onWastePaperDropped()

@@ -20,6 +20,7 @@ class RoomObjectEntity extends Entity
 	public var beingCarried:Bool;
 	public var toggleState:RoomObjectRow;
 	public var onToggleEvent:Void->Void;
+	public var onDropEvent:Void->Void;
 	public var onDroppedEvent:Void->Void;
 	
 	var spritemap:Spritemap;
@@ -56,7 +57,10 @@ class RoomObjectEntity extends Entity
 		
 		if (collide("player", x, y) != null)
 		{
-			LD.world.setMessageText(roomObject.description);
+			if (on)
+				LD.world.setMessageText(toggleState.description);
+			else
+				LD.world.setMessageText(roomObject.description);
 			
 			if (Input.pressed(Key.SPACE) && LD.world.player.carryObject == null)
 			{
@@ -91,6 +95,9 @@ class RoomObjectEntity extends Entity
 		Actuate.tween(this, 0.3, { x: x + (100 * LD.world.player.direction * -1) } ).ease(Quad.easeOut);
 		
 		LD.playSoundEffect(AudioEnum.BOUNCE);
+		
+		if(onDropEvent != null)
+			onDropEvent();
 	}
 	
 	function onDropped()
@@ -101,7 +108,7 @@ class RoomObjectEntity extends Entity
 			onDroppedEvent();
 	}
 	
-	public function toggleSwitch()
+	public function toggleSwitch(dispatchEvent:Bool=true)
 	{
 		on = !on;
 		
@@ -116,8 +123,11 @@ class RoomObjectEntity extends Entity
 			spritemap.frame = roomObject.artIndex;
 		}
 		
-		if (onToggleEvent != null)
-			onToggleEvent();
+		if (dispatchEvent)
+		{
+			if (onToggleEvent != null)
+				onToggleEvent();
+		}
 	}
 	
 }
